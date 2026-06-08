@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="关于我">
+  <Header />
+  <main>
+    <h1>关于我</h1>
+    <div class="content">
+      <p>
+        你好！我是 <strong>孙亚冬</strong>，一名热爱技术的开发者。
+      </p>
+      <p>
+        这个博客是我用来记录学习笔记、技术探索和日常生活的地方。
+        我主要关注前端开发、后端技术以及各种有趣的编程话题。
+      </p>
+      <h2>联系方式</h2>
+      <ul>
+        <li>GitHub: <a href="https://github.com/yadongSun" target="_blank">@yadongSun</a></li>
+        <li>博客: <a href="https://sunarius.github.io">sunarius.github.io</a></li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1, h2 {
+    color: white;
+  }
+  h2 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  .content {
+    color: rgb(200, 200, 200);
+    line-height: 1.8;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 1.5rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  a {
+    color: rgb(var(--accent-light));
+  }
+</style>

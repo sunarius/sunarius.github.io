@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .sun { fill: #FF5D01; }
+    .orbit { fill: none; stroke: #FF5D01; stroke-width: 2; }
+  </style>
+  <circle class="sun" cx="16" cy="16" r="8"/>
+  <ellipse class="orbit" cx="16" cy="16" rx="14" ry="5" transform="rotate(45 16 16)"/>
+</svg>

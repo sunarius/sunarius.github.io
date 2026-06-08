@@ -1,0 +1,57 @@
+---
+const navItems = [
+  { label: '首页', href: '/' },
+  { label: '博客', href: '/blog' },
+  { label: '关于', href: '/about' },
+];
+---
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="/">我的博客</a>
+    </div>
+    <ul class="nav-links">
+      {navItems.map(item => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    margin: 0;
+    padding: 1rem 0;
+    background: rgba(var(--accent-dark), 0.5);
+  }
+  nav {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    color: rgb(var(--accent-light));
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: white;
+  }
+</style>

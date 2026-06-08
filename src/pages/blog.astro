@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: '我的第一篇博客文章',
+    description: '这是我的第一篇博客文章，记录一下开始写博客的初衷和计划。',
+    date: new Date('2024-01-15'),
+    slug: 'first-post'
+  },
+  {
+    title: 'Astro 博客搭建心得',
+    description: '分享使用 Astro 搭建静态博客的经验和踩过的坑。',
+    date: new Date('2024-01-20'),
+    slug: 'astro-blog-tips'
+  }
+];
+---
+
+<Layout title="博客文章">
+  <Header />
+  <main>
+    <h1>博客文章</h1>
+    <div class="posts">
+      {posts.map(post => (
+        <PostCard {...post} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1 {
+    color: white;
+    margin-bottom: 2rem;
+  }
+</style>

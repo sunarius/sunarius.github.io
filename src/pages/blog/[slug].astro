@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'first-post' } },
+    { params: { slug: 'astro-blog-tips' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+// 简单的静态数据，实际项目中可以从文件系统读取
+const posts: Record<string, { title: string; date: string; content: string }> = {
+  'first-post': {
+    title: '我的第一篇博客文章',
+    date: '2024-01-15',
+    content: `
+# 我的第一篇博客文章
+
+欢迎来到我的博客！这是我的第一篇文章。
+
+## 为什么开始写博客？
+
+记录学习过程，分享技术心得，也是对自己成长的一种见证。
+
+## 未来计划
+
+- 分享技术学习笔记
+- 记录项目开发经验
+- 分享生活感悟
+
+感谢阅读！
+    `
+  },
+  'astro-blog-tips': {
+    title: 'Astro 博客搭建心得',
+    date: '2024-01-20',
+    content: `
+# Astro 博客搭建心得
+
+Astro 是一个非常棒的静态站点生成器，特别适合构建内容型网站。
+
+## 为什么选择 Astro？
+
+1. **零 JS 默认**：页面默认没有 JavaScript，加载速度极快
+2. **组件化**：可以使用 React、Vue、Svelte 等框架的组件
+3. **Markdown 支持**：原生支持 Markdown 和 MDX
+4. **SEO 友好**：生成的页面完全静态，对搜索引擎友好
+
+## 快速开始
+
+\`\`\`bash
+npm create astro@latest my-blog
+\`\`\`
+
+就这么简单！
+
+## 总结
+
+Astro 是目前我最喜欢的静态站点生成器，强烈推荐给大家。
+    `
+  }
+};
+
+const post = posts[slug as string];
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={post.title}>
+  <Header />
+  <main>
+    <article>
+      <header>
+        <h1>{post.title}</h1>
+        <time>{new Date(post.date).toLocaleDateString('zh-CN')}</time>
+      </header>
+      <div class="content">
+        {post.content.split('\n').map(line => {
+          if (line.startsWith('# ')) {
+            return <h1>{line.slice(2)}</h1>;
+          } else if (line.startsWith('## ')) {
+            return <h2>{line.slice(3)}</h2>;
+          } else if (line.startsWith('- ')) {
+            return <li>{line.slice(2)}</li>;
+          } else if (line.startsWith('```')) {
+            return null;
+          } else if (line.trim() === '') {
+            return <br />;
+          } else {
+            return <p>{line}</p>;
+          }
+        })}
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  article header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(var(--accent-light), 0.2);
+    padding-bottom: 1rem;
+  }
+  h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+  }
+  time {
+    color: rgb(var(--accent-light));
+    font-size: 0.875rem;
+  }
+  .content {
+    color: rgb(220, 220, 220);
+    line-height: 1.8;
+  }
+  .content :global(h1), .content :global(h2) {
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .content :global(p) {
+    margin-bottom: 1rem;
+  }
+  .content :global(li) {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
