@@ -5,5 +5,8 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sunarius.github.io',
+  devToolbar: {
+    enabled: false
+  },
   integrations: [mdx(), sitemap()],
 });

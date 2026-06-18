@@ -2,275 +2,61 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-const modules = [
-  {
-    title: '健康幸福',
-    href: '/wellness',
-    desc: '身体是灵魂的容器',
-    icon: '🌿',
-    color: '#52c41a'
-  },
-  {
-    title: '事业有成',
-    href: '/career',
-    desc: '在代码世界里探索',
-    icon: '💼',
-    color: '#1890ff'
-  },
-  {
-    title: '财富自由',
-    href: '/wealth',
-    desc: '金钱是工具，自由是目的',
-    icon: '💎',
-    color: '#faad14'
-  },
-  {
-    title: '随念随想',
-    href: '/thoughts',
-    desc: '捕捉稍纵即逝的思绪',
-    icon: '💭',
-    color: '#722ed1'
-  },
-];
 ---
 
-<Layout title="亚冬的小窝 🏠">
+<Layout title="孙亚冬的内省地">
   <Header />
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>
-          <span class="wave">👋</span>
-          <br/>
-          欢迎来到<br/>
-          <span class="gradient-text">亚冬的小窝</span>
-        </h1>
-        <p class="intro">
-          这里记录着我的生活点滴、成长足迹和美好瞬间
-        </p>
-        <div class="divider">
-          <span>✦</span>
-          <span>✿</span>
-          <span>✦</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="modules">
-      {modules.map(module => (
-        <a href={module.href} class="module-card" style={`--card-color: ${module.color}`}>
-          <div class="card-icon">{module.icon}</div>
-          <h3>{module.title}</h3>
-          <p>{module.desc}</p>
-          <span class="arrow">→</span>
-        </a>
-      ))}
-    </section>
-
-    <section class="cta">
-      <a href="/about" class="btn">
-        <span>了解更多</span>
-        <span class="btn-icon">🌸</span>
-      </a>
-    </section>
+    <div class="hero">
+      <h1 class="slogan">
+        活得简单点、幸福点、自由点
+      </h1>
+      <p class="subtitle">
+        和优秀的人，做伟大的事
+      </p>
+    </div>
   </main>
   <Footer />
 </Layout>
 
 <style>
   main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
   }
 
   .hero {
     text-align: center;
-    padding: 3rem 0 2rem;
   }
 
-  .hero-content {
-    background: linear-gradient(135deg, #fff5f5 0%, #fff0f3 100%);
-    border-radius: 24px;
-    padding: 3rem 2rem;
-    box-shadow: 0 4px 20px rgba(255, 154, 158, 0.1);
-    border: 1px solid rgba(255, 154, 158, 0.2);
-  }
-
-  .wave {
-    font-size: 3rem;
-    display: inline-block;
-    animation: wave 2s ease-in-out infinite;
-  }
-
-  @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(20deg); }
-    75% { transform: rotate(-10deg); }
-  }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.4;
-    color: var(--text-primary);
+  .slogan {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a1a;
     margin: 0 0 1rem;
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ff9a9e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradient 3s ease infinite;
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .intro {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin: 0 0 1.5rem;
+    letter-spacing: 0.1em;
     line-height: 1.6;
   }
 
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: #ff9a9e;
-    font-size: 1.2rem;
-  }
-
-  .modules {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .module-card {
-    background: white;
-    border: 1px solid rgba(255, 154, 158, 0.15);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .module-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--card-color);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .module-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(255, 154, 158, 0.15);
-    border-color: rgba(255, 154, 158, 0.3);
-  }
-
-  .module-card:hover::before {
-    opacity: 1;
-  }
-
-  .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    transition: transform 0.3s;
-  }
-
-  .module-card:hover .card-icon {
-    transform: scale(1.2) rotate(5deg);
-  }
-
-  .module-card h3 {
-    color: var(--text-primary);
-    margin: 0 0 0.5rem;
+  .subtitle {
     font-size: 1.1rem;
-    font-weight: 600;
-  }
-
-  .module-card p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-weight: 400;
+    color: #999999;
     margin: 0;
-    line-height: 1.5;
-  }
-
-  .arrow {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    color: #ff9a9e;
-    opacity: 0;
-    transition: all 0.3s;
-  }
-
-  .module-card:hover .arrow {
-    opacity: 1;
-    transform: translateX(5px);
-  }
-
-  .cta {
-    text-align: center;
-    margin-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
-  }
-
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 154, 158, 0.4);
-  }
-
-  .btn-icon {
-    transition: transform 0.3s;
-  }
-
-  .btn:hover .btn-icon {
-    transform: rotate(360deg);
+    letter-spacing: 0.15em;
   }
 
   @media (max-width: 600px) {
-    .modules {
-      grid-template-columns: 1fr;
+    .slogan {
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
     }
-    h1 {
-      font-size: 1.5rem;
-    }
-    .hero-content {
-      padding: 2rem 1.5rem;
+    .subtitle {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
     }
   }
 </style>

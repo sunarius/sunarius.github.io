@@ -2,21 +2,58 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import PostCard from '../components/PostCard.astro';
 
-const posts = [
+const subCategories = [
   {
-    title: '技术成长路线图',
-    description: '从初级到高级，我的技术成长心得与规划。',
-    date: new Date('2024-02-01'),
-    slug: 'tech-growth-roadmap'
+    title: '安全运营',
+    icon: '🛡️',
+    description: 'Security Operations',
+    bookmarks: [
+      { title: 'SOC 建设指南', url: '#', desc: '安全运营中心搭建实践' },
+      { title: '威胁情报平台', url: '#', desc: '威胁情报收集与分析' },
+      { title: '应急响应手册', url: '#', desc: '安全事件响应流程' },
+    ]
   },
   {
-    title: 'Astro 博客搭建心得',
-    description: '分享使用 Astro 搭建静态博客的经验和踩过的坑。',
-    date: new Date('2024-01-20'),
-    slug: 'astro-blog-tips'
-  }
+    title: '办公安全',
+    icon: '🔒',
+    description: 'Office Security',
+    bookmarks: [
+      { title: '零信任架构', url: '#', desc: 'BeyondCorp 实施经验' },
+      { title: '终端安全管理', url: '#', desc: 'EDR/XDR 解决方案' },
+      { title: '邮件安全网关', url: '#', desc: '钓鱼邮件防护策略' },
+    ]
+  },
+  {
+    title: '数据安全',
+    icon: '🔐',
+    description: 'Data Security',
+    bookmarks: [
+      { title: '数据分类分级', url: '#', desc: '数据资产梳理与保护' },
+      { title: '隐私计算技术', url: '#', desc: '联邦学习、多方安全计算' },
+      { title: '数据脱敏方案', url: '#', desc: '敏感数据处理实践' },
+    ]
+  },
+  {
+    title: '安全治理',
+    icon: '📋',
+    description: 'Security Governance',
+    bookmarks: [
+      { title: '安全合规框架', url: '#', desc: 'ISO27001/等保2.0' },
+      { title: '安全审计流程', url: '#', desc: '内审与外审最佳实践' },
+      { title: '风险评估模型', url: '#', desc: '定量与定性风险分析' },
+    ]
+  },
+  {
+    title: 'AI安全',
+    icon: '🤖',
+    description: 'AI Security',
+    bookmarks: [
+      { title: '模型安全测试', url: '#', desc: '对抗样本与模型鲁棒性' },
+      { title: 'AIGC 安全', url: '#', desc: '大模型应用安全挑战' },
+      { title: 'AI 伦理规范', url: '#', desc: '负责任 AI 开发指南' },
+    ]
+  },
 ];
 ---
 
@@ -29,18 +66,35 @@ const posts = [
       <p class="section-desc">在代码的世界里探索，在事业的征途中前行</p>
     </div>
 
-    <div class="posts-grid">
-      {posts.map((post, index) => (
-        <article class="post-card" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="card-header">
-            <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
-            <span class="date">{post.date.toLocaleDateString('zh-CN')}</span>
+    <div class="sub-nav">
+      {subCategories.map(sub => (
+        <a href={`#${sub.title}`} class="sub-nav-item">
+          <span class="sub-icon">{sub.icon}</span>
+          <span class="sub-title">{sub.title}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="categories">
+      {subCategories.map(cat => (
+        <section id={cat.title} class="category-section">
+          <div class="category-header">
+            <span class="category-icon">{cat.icon}</span>
+            <div class="category-title-wrap">
+              <h2 class="category-title">{cat.title}</h2>
+              <span class="category-desc">{cat.description}</span>
+            </div>
           </div>
-          <p class="card-desc">{post.description}</p>
-          <div class="card-footer">
-            <span class="read-more">阅读更多 →</span>
+
+          <div class="bookmarks-grid">
+            {cat.bookmarks.map(bookmark => (
+              <a href={bookmark.url} class="bookmark-card">
+                <h3 class="bookmark-title">{bookmark.title}</h3>
+                <p class="bookmark-desc">{bookmark.desc}</p>
+              </a>
+            ))}
           </div>
-        </article>
+        </section>
       ))}
     </div>
   </main>
@@ -49,119 +103,160 @@ const posts = [
 
 <style>
   main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1rem;
-    min-height: calc(100vh - 200px);
+    padding: 3rem 1.5rem;
+    min-height: calc(100vh - 140px);
   }
 
   .section-header {
-    text-align: center;
-    padding: 2rem 0;
+    margin-bottom: 2rem;
   }
 
   .section-icon {
-    font-size: 4rem;
-    display: inline-block;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(-5deg); }
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   h1 {
-    color: #1890ff;
-    font-size: 2rem;
-    margin: 1rem 0 0.5rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   .section-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
+    color: #666666;
+    font-size: 0.95rem;
     margin: 0;
+    line-height: 1.5;
   }
 
-  .posts-grid {
+  .sub-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .sub-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #666666;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .sub-nav-item:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .sub-icon {
+    font-size: 1rem;
+  }
+
+  .categories {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 3rem;
   }
 
-  .post-card {
-    background: white;
-    border: 1px solid rgba(24, 144, 255, 0.15);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
+  .category-section {
+    scroll-margin-top: 100px;
   }
 
-  @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-    from { opacity: 0; transform: translateY(20px); }
-  }
-
-  .post-card:hover {
-    border-color: rgba(24, 144, 255, 0.3);
-    box-shadow: 0 4px 20px rgba(24, 144, 255, 0.1);
-    transform: translateY(-3px);
-  }
-
-  .card-header {
+  .category-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
   }
 
-  .card-header h3 {
+  .category-icon {
+    font-size: 1.5rem;
+  }
+
+  .category-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
     margin: 0;
-    font-size: 1.2rem;
-    flex: 1;
   }
 
-  .card-header h3 a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .card-header h3 a:hover {
-    color: #1890ff;
-  }
-
-  .date {
-    color: var(--text-muted);
+  .category-desc {
     font-size: 0.85rem;
-    white-space: nowrap;
+    color: #999999;
   }
 
-  .card-desc {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
+  .bookmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
   }
 
-  .card-footer {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(24, 144, 255, 0.1);
+  .bookmark-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s;
   }
 
-  .read-more {
-    color: #1890ff;
-    font-size: 0.9rem;
+  .bookmark-card:hover {
+    border-color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .bookmark-title {
+    font-size: 1rem;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
   }
 
-  .read-more:hover {
-    color: #096dd9;
+  .bookmark-desc {
+    font-size: 0.85rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 2rem 1rem;
+    }
+
+    .sub-nav {
+      gap: 0.5rem;
+    }
+
+    .sub-nav-item {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .bookmarks-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

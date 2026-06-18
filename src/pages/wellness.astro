@@ -2,21 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import PostCard from '../components/PostCard.astro';
 
-const posts = [
+const subCategories = [
   {
-    title: '晨跑一个月的感悟',
-    description: '坚持早起跑步一个月，身体和心态都发生了微妙的变化。',
-    date: new Date('2024-01-15'),
-    slug: 'morning-run-30-days'
+    title: '运动健身',
+    icon: '🏃',
+    description: 'Exercise & Fitness',
+    bookmarks: [
+      { title: '跑步训练计划', url: '#', desc: '从5K到马拉松的进阶之路' },
+      { title: '居家健身指南', url: '#', desc: '无器械全身训练方案' },
+      { title: '瑜伽入门教程', url: '#', desc: '零基础瑜伽体式详解' },
+    ]
   },
   {
-    title: '冥想入门指南',
-    description: '如何在繁忙的生活中找到内心的平静。',
-    date: new Date('2024-01-20'),
-    slug: 'meditation-guide'
-  }
+    title: '饮食营养',
+    icon: '🥗',
+    description: 'Nutrition & Diet',
+    bookmarks: [
+      { title: '均衡膳食搭配', url: '#', desc: '营养比例与食材选择' },
+      { title: '健康食谱合集', url: '#', desc: '简单易做的营养餐' },
+      { title: '间歇性断食', url: '#', desc: '16:8轻断食实践记录' },
+    ]
+  },
+  {
+    title: '心理健康',
+    icon: '🧘',
+    description: 'Mental Health',
+    bookmarks: [
+      { title: '冥想练习', url: '#', desc: '正念冥想入门与进阶' },
+      { title: '压力管理', url: '#', desc: '缓解焦虑的实用技巧' },
+      { title: '睡眠优化', url: '#', desc: '改善睡眠质量的方法' },
+    ]
+  },
+  {
+    title: '习惯养成',
+    icon: '✅',
+    description: 'Habit Building',
+    bookmarks: [
+      { title: '晨间惯例', url: '#', desc: '早起后的黄金一小时' },
+      { title: '微习惯策略', url: '#', desc: '小改变带来大不同' },
+      { title: '习惯追踪', url: '#', desc: '用数据记录成长轨迹' },
+    ]
+  },
 ];
 ---
 
@@ -29,18 +56,35 @@ const posts = [
       <p class="section-desc">身体是灵魂的容器，幸福是生命最本真的追求</p>
     </div>
 
-    <div class="posts-grid">
-      {posts.map((post, index) => (
-        <article class="post-card" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="card-header">
-            <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
-            <span class="date">{post.date.toLocaleDateString('zh-CN')}</span>
+    <div class="sub-nav">
+      {subCategories.map(sub => (
+        <a href={`#${sub.title}`} class="sub-nav-item">
+          <span class="sub-icon">{sub.icon}</span>
+          <span class="sub-title">{sub.title}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="categories">
+      {subCategories.map(cat => (
+        <section id={cat.title} class="category-section">
+          <div class="category-header">
+            <span class="category-icon">{cat.icon}</span>
+            <div class="category-title-wrap">
+              <h2 class="category-title">{cat.title}</h2>
+              <span class="category-desc">{cat.description}</span>
+            </div>
           </div>
-          <p class="card-desc">{post.description}</p>
-          <div class="card-footer">
-            <span class="read-more">阅读更多 →</span>
+
+          <div class="bookmarks-grid">
+            {cat.bookmarks.map(bookmark => (
+              <a href={bookmark.url} class="bookmark-card">
+                <h3 class="bookmark-title">{bookmark.title}</h3>
+                <p class="bookmark-desc">{bookmark.desc}</p>
+              </a>
+            ))}
           </div>
-        </article>
+        </section>
       ))}
     </div>
   </main>
@@ -49,119 +93,160 @@ const posts = [
 
 <style>
   main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1rem;
-    min-height: calc(100vh - 200px);
+    padding: 3rem 1.5rem;
+    min-height: calc(100vh - 140px);
   }
 
   .section-header {
-    text-align: center;
-    padding: 2rem 0;
+    margin-bottom: 2rem;
   }
 
   .section-icon {
-    font-size: 4rem;
-    display: inline-block;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   h1 {
-    color: #52c41a;
-    font-size: 2rem;
-    margin: 1rem 0 0.5rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   .section-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
+    color: #666666;
+    font-size: 0.95rem;
     margin: 0;
+    line-height: 1.5;
   }
 
-  .posts-grid {
+  .sub-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .sub-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #666666;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .sub-nav-item:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .sub-icon {
+    font-size: 1rem;
+  }
+
+  .categories {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 3rem;
   }
 
-  .post-card {
-    background: white;
-    border: 1px solid rgba(82, 196, 26, 0.15);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
+  .category-section {
+    scroll-margin-top: 100px;
   }
 
-  @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-    from { opacity: 0; transform: translateY(20px); }
-  }
-
-  .post-card:hover {
-    border-color: rgba(82, 196, 26, 0.3);
-    box-shadow: 0 4px 20px rgba(82, 196, 26, 0.1);
-    transform: translateY(-3px);
-  }
-
-  .card-header {
+  .category-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
   }
 
-  .card-header h3 {
+  .category-icon {
+    font-size: 1.5rem;
+  }
+
+  .category-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
     margin: 0;
-    font-size: 1.2rem;
-    flex: 1;
   }
 
-  .card-header h3 a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .card-header h3 a:hover {
-    color: #52c41a;
-  }
-
-  .date {
-    color: var(--text-muted);
+  .category-desc {
     font-size: 0.85rem;
-    white-space: nowrap;
+    color: #999999;
   }
 
-  .card-desc {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
+  .bookmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
   }
 
-  .card-footer {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(82, 196, 26, 0.1);
+  .bookmark-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s;
   }
 
-  .read-more {
-    color: #52c41a;
-    font-size: 0.9rem;
+  .bookmark-card:hover {
+    border-color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .bookmark-title {
+    font-size: 1rem;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
   }
 
-  .read-more:hover {
-    color: #389e0d;
+  .bookmark-desc {
+    font-size: 0.85rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    main {
+      padding: 2rem 1rem;
+    }
+
+    .sub-nav {
+      gap: 0.5rem;
+    }
+
+    .sub-nav-item {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .bookmarks-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
