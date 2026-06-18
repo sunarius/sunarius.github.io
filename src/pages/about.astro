@@ -4,22 +4,39 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="关于我">
+<Layout title="@孙亚冬">
   <Header />
   <main>
-    <h1>关于我</h1>
+    <div class="profile">
+      <div class="avatar">孙</div>
+      <h1>@孙亚冬</h1>
+      <p class="tagline">代码工匠 | 终身学习者 | 生活探索者</p>
+    </div>
+
     <div class="content">
       <p>
-        你好！我是 <strong>孙亚冬</strong>，一名热爱技术的开发者。
+        你好！我是 <strong>孙亚冬</strong>，欢迎来到我的数字花园。
       </p>
       <p>
-        这个博客是我用来记录学习笔记、技术探索和日常生活的地方。
-        我主要关注前端开发、后端技术以及各种有趣的编程话题。
+        这个博客是我记录人生旅程的地方——从<strong>健康幸福</strong>的日常，
+        到<strong>事业有成</strong>的探索；从<strong>财富自由</strong>的规划，
+        到<strong>随念随想</strong>的思绪。
       </p>
-      <h2>联系方式</h2>
-      <ul>
-        <li>GitHub: <a href="https://github.com/yadongSun" target="_blank">@yadongSun</a></li>
-        <li>博客: <a href="https://sunarius.github.io">sunarius.github.io</a></li>
+      <p>
+        人生是一场修行，而文字是思考的轨迹。
+        愿在这里与你分享成长，共同进步。
+      </p>
+
+      <h2>找到我</h2>
+      <ul class="contact">
+        <li>
+          <span class="icon">🐙</span>
+          <a href="https://github.com/yadongSun" target="_blank">GitHub @yadongSun</a>
+        </li>
+        <li>
+          <span class="icon">🌐</span>
+          <a href="https://sunarius.github.io">sunarius.github.io</a>
+        </li>
       </ul>
     </div>
   </main>
@@ -33,13 +50,35 @@ import Footer from '../components/Footer.astro';
     padding: 2rem 1rem;
     min-height: calc(100vh - 200px);
   }
-  h1, h2 {
-    color: var(--text-primary);
+  .profile {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
   }
-  h2 {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
+  .avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-light)));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 15px rgba(var(--accent), 0.3);
+  }
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .tagline {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
   }
   .content {
     color: var(--text-secondary);
@@ -49,11 +88,25 @@ import Footer from '../components/Footer.astro';
   p {
     margin-bottom: 1rem;
   }
-  ul {
-    padding-left: 1.5rem;
+  h2 {
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
   }
-  li {
-    margin-bottom: 0.5rem;
+  .contact {
+    list-style: none;
+    padding: 0;
+  }
+  .contact li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .icon {
+    font-size: 1.2rem;
   }
   a {
     color: rgb(var(--accent));

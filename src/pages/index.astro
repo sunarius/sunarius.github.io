@@ -2,23 +2,60 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const modules = [
+  {
+    title: '健康幸福',
+    href: '/wellness',
+    desc: '身体是灵魂的容器',
+    icon: '🌱'
+  },
+  {
+    title: '事业有成',
+    href: '/career',
+    desc: '在代码世界里探索',
+    icon: '💻'
+  },
+  {
+    title: '财富自由',
+    href: '/wealth',
+    desc: '金钱是工具，自由是目的',
+    icon: '💎'
+  },
+  {
+    title: '随念随想',
+    href: '/thoughts',
+    desc: '捕捉稍纵即逝的思绪',
+    icon: '💭'
+  },
+];
 ---
 
-<Layout title="欢迎来到我的博客">
+<Layout title="孙亚冬的数字花园">
   <Header />
   <main>
     <section class="hero">
       <h1>
-        <span class="text-gradient">欢迎来到</span>
-        <br />
-        我的个人博客
+        <span class="text-gradient">数字花园</span>
       </h1>
       <p class="intro">
-        这里记录我的技术学习、生活感悟和各种有趣的发现。
+        人生是一场修行，文字是思考的轨迹。<br/>
+        在这里记录成长，分享感悟。
       </p>
     </section>
+
+    <section class="modules">
+      {modules.map(module => (
+        <a href={module.href} class="module-card">
+          <span class="module-icon">{module.icon}</span>
+          <h3>{module.title}</h3>
+          <p>{module.desc}</p>
+        </a>
+      ))}
+    </section>
+
     <section class="cta">
-      <a href="/blog" class="button">浏览文章</a>
+      <a href="/about" class="button">关于 @孙亚冬</a>
     </section>
   </main>
   <Footer />
@@ -33,7 +70,7 @@ import Footer from '../components/Footer.astro';
   }
   .hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 3rem 0 2rem;
   }
   h1 {
     font-size: 3rem;
@@ -51,10 +88,45 @@ import Footer from '../components/Footer.astro';
   }
   .intro {
     color: var(--text-secondary);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     max-width: 500px;
     margin: 0 auto;
     line-height: 1.6;
+  }
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .module-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .module-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgb(var(--accent));
+  }
+  .module-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .module-card h3 {
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+  }
+  .module-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
   }
   .cta {
     text-align: center;
@@ -76,5 +148,10 @@ import Footer from '../components/Footer.astro';
     background: rgb(var(--accent-dark));
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  }
+  @media (max-width: 600px) {
+    .modules {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: '我的理财心得',
+    description: '从月光族到开始理财，分享我的经验和教训。',
+    date: new Date('2024-02-10'),
+    slug: 'my-finance-tips'
+  },
+  {
+    title: '指数基金入门',
+    description: '适合普通人的投资方式，从零开始学习指数基金。',
+    date: new Date('2024-02-15'),
+    slug: 'index-fund-guide'
+  }
+];
+---
+
+<Layout title="财富自由">
+  <Header />
+  <main>
+    <h1>财富自由</h1>
+    <p class="description">
+      金钱是工具，自由才是目的。记录通往财务自由的每一步。
+    </p>
+    <div class="posts">
+      {posts.map(post => (
+        <PostCard {...post} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

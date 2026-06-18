@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: '技术成长路线图',
+    description: '从初级到高级，我的技术成长心得与规划。',
+    date: new Date('2024-02-01'),
+    slug: 'tech-growth-roadmap'
+  },
+  {
+    title: 'Astro 博客搭建心得',
+    description: '分享使用 Astro 搭建静态博客的经验和踩过的坑。',
+    date: new Date('2024-01-20'),
+    slug: 'astro-blog-tips'
+  }
+];
+---
+
+<Layout title="事业有成">
+  <Header />
+  <main>
+    <h1>事业有成</h1>
+    <p class="description">
+      在代码的世界里探索，在事业的征途中前行。
+    </p>
+    <div class="posts">
+      {posts.map(post => (
+        <PostCard {...post} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

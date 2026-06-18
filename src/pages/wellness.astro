@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: '晨跑一个月的感悟',
+    description: '坚持早起跑步一个月，身体和心态都发生了微妙的变化。',
+    date: new Date('2024-01-15'),
+    slug: 'morning-run-30-days'
+  },
+  {
+    title: '冥想入门指南',
+    description: '如何在繁忙的生活中找到内心的平静。',
+    date: new Date('2024-01-20'),
+    slug: 'meditation-guide'
+  }
+];
+---
+
+<Layout title="健康幸福">
+  <Header />
+  <main>
+    <h1>健康幸福</h1>
+    <p class="description">
+      身体是灵魂的容器，幸福是生命最本真的追求。
+    </p>
+    <div class="posts">
+      {posts.map(post => (
+        <PostCard {...post} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

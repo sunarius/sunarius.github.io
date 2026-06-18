@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: '雨天的午后',
+    description: '窗外的雨声，手中的咖啡，此刻的宁静。',
+    date: new Date('2024-02-20'),
+    slug: 'rainy-afternoon'
+  },
+  {
+    title: '关于时间管理的思考',
+    description: '时间是最公平的资源，如何使用决定了人生的质量。',
+    date: new Date('2024-02-22'),
+    slug: 'time-management-thoughts'
+  }
+];
+---
+
+<Layout title="随念随想">
+  <Header />
+  <main>
+    <h1>随念随想</h1>
+    <p class="description">
+      思绪如风，念头如云。捕捉那些稍纵即逝的想法。
+    </p>
+    <div class="posts">
+      {posts.map(post => (
+        <PostCard {...post} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
