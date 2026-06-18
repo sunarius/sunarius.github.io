@@ -22,8 +22,9 @@ const navItems = [
 <style>
   header {
     margin: 0;
-    padding: 1rem 0;
-    background: rgba(var(--accent-dark), 0.5);
+    padding: 0;
+    background: var(--bg-header);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
   nav {
     max-width: 800px;
@@ -31,13 +32,14 @@ const navItems = [
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 1rem;
   }
   .logo a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
   .nav-links {
     list-style: none;
@@ -47,9 +49,11 @@ const navItems = [
     padding: 0;
   }
   .nav-links a {
-    color: rgb(var(--accent-light));
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.2s;
+    padding: 0.5rem 0;
   }
   .nav-links a:hover {
     color: white;

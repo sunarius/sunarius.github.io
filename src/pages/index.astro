@@ -39,7 +39,7 @@ import Footer from '../components/Footer.astro';
     font-size: 3rem;
     font-weight: 700;
     line-height: 1.2;
-    color: white;
+    color: var(--text-primary);
     margin: 0 0 1rem 0;
   }
   .text-gradient {
@@ -50,7 +50,7 @@ import Footer from '../components/Footer.astro';
     background-position: 0%;
   }
   .intro {
-    color: rgb(200, 200, 200);
+    color: var(--text-secondary);
     font-size: 1.25rem;
     max-width: 500px;
     margin: 0 auto;
@@ -62,15 +62,19 @@ import Footer from '../components/Footer.astro';
   }
   .button {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 0.875rem 2.5rem;
     background: rgb(var(--accent));
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    transition: background 0.2s;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
   }
   .button:hover {
     background: rgb(var(--accent-dark));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   }
 </style>

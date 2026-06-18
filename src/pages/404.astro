@@ -33,9 +33,10 @@ import Footer from '../components/Footer.astro';
     font-size: 6rem;
     color: rgb(var(--accent));
     margin: 0;
+    font-weight: 700;
   }
   p {
-    color: white;
+    color: var(--text-secondary);
     font-size: 1.5rem;
     margin: 1rem 0 2rem;
   }
@@ -47,9 +48,12 @@ import Footer from '../components/Footer.astro';
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
   }
   .button:hover {
     background: rgb(var(--accent-dark));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   }
 </style>
