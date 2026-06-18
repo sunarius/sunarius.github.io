@@ -20,16 +20,42 @@ const posts = [
 ];
 ---
 
-<Layout title="事业有成">
+<Layout title="◉ 事业有成 | CAREER">
   <Header />
   <main>
-    <h1>事业有成</h1>
-    <p class="description">
-      在代码的世界里探索，在事业的征途中前行。
-    </p>
-    <div class="posts">
-      {posts.map(post => (
-        <PostCard {...post} />
+    <div class="section-header">
+      <div class="icon-large">◉</div>
+      <h1>事业有成</h1>
+      <div class="subtitle">CAREER_MODULE_v2.0</div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="terminal-box">
+      <div class="terminal-line">
+        <span class="prompt">$</span>
+        <span class="command">cat career.manifest</span>
+      </div>
+      <div class="content-box">
+        <span class="highlight">[STATUS]</span> 在代码的世界里探索，在事业的征途中前行。
+      </div>
+    </div>
+
+    <div class="posts-grid">
+      {posts.map((post, index) => (
+        <article class="post-card" style={`animation-delay: ${index * 0.2}s`}>
+          <div class="card-header">
+            <span class="card-icon">◉</span>
+            <span class="card-id">ID_{String(index + 1).padStart(3, '0')}</span>
+          </div>
+          <h3 class="post-title">
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </h3>
+          <p class="post-desc">{post.description}</p>
+          <div class="card-footer">
+            <span class="timestamp">{post.date.toLocaleDateString('zh-CN')}</span>
+            <span class="access-btn">[访问]</span>
+          </div>
+        </article>
       ))}
     </div>
   </main>
@@ -38,25 +64,182 @@ const posts = [
 
 <style>
   main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
     min-height: calc(100vh - 200px);
   }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .icon-large {
+    font-size: 3rem;
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
   h1 {
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    color: #00ffff;
+    margin: 0 0 0.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   }
-  .description {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    font-style: italic;
+
+  .subtitle {
+    color: rgba(0, 255, 255, 0.5);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
   }
-  .posts {
+
+  .divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    margin: 1.5rem auto;
+  }
+
+  .terminal-box {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .terminal-line {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prompt {
+    color: #ff00ff;
+    font-weight: bold;
+  }
+
+  .command {
+    color: #00ffff;
+  }
+
+  .content-box {
+    color: rgba(224, 224, 255, 0.9);
+    line-height: 1.8;
+    padding-left: 1.5rem;
+  }
+
+  .highlight {
+    color: #00ffff;
+    font-weight: bold;
+  }
+
+  .posts-grid {
+    display: grid;
     gap: 1.5rem;
+  }
+
+  .post-card {
+    background: rgba(10, 15, 30, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  .post-card:hover {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .card-icon {
+    color: #00ffff;
+    font-size: 1.2rem;
+  }
+
+  .card-id {
+    color: rgba(0, 255, 255, 0.5);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+  }
+
+  .post-title a {
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  .post-title a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  }
+
+  .post-desc {
+    color: rgba(224, 224, 255, 0.7);
+    margin: 0.75rem 0;
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+  }
+
+  .timestamp {
+    color: rgba(224, 224, 255, 0.5);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+  }
+
+  .access-btn {
+    color: #ff00ff;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .access-btn:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
 </style>

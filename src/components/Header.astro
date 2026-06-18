@@ -1,21 +1,31 @@
 ---
 const navItems = [
-  { label: '健康幸福', href: '/wellness' },
-  { label: '事业有成', href: '/career' },
-  { label: '财富自由', href: '/wealth' },
-  { label: '随念随想', href: '/thoughts' },
-  { label: '@孙亚冬', href: '/about' },
+  { label: '◈ 健康幸福', href: '/wellness' },
+  { label: '◉ 事业有成', href: '/career' },
+  { label: '◆ 财富自由', href: '/wealth' },
+  { label: '◇ 随念随想', href: '/thoughts' },
+  { label: '◎ @孙亚冬', href: '/about' },
 ];
 ---
 
 <header>
   <nav>
     <div class="logo">
-      <a href="/">我的博客</a>
+      <a href="/">
+        <span class="logo-icon">◉</span>
+        <span class="glitch" data-text="CYBER">CYBER</span>
+        <span class="logo-suffix">_LOG</span>
+      </a>
     </div>
     <ul class="nav-links">
       {navItems.map(item => (
-        <li><a href={item.href}>{item.label}</a></li>
+        <li>
+          <a href={item.href} class="nav-link">
+            <span class="link-bracket">[</span>
+            {item.label}
+            <span class="link-bracket">]</span>
+          </a>
+        </li>
       ))}
     </ul>
   </nav>
@@ -25,39 +35,130 @@ const navItems = [
   header {
     margin: 0;
     padding: 0;
-    background: var(--bg-header);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: rgba(10, 10, 20, 0.95);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 2px 20px rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 100;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
+    animation: scanline 3s linear infinite;
+  }
+  @keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
   nav {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
   .logo a {
-    color: white;
+    color: #00ffff;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  .logo-icon {
+    font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .glitch {
+    position: relative;
+    color: #00ffff;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .glitch::before {
+    animation: glitch-1 2s infinite;
+    color: #ff00ff;
+    z-index: -1;
+  }
+  .glitch::after {
+    animation: glitch-2 2s infinite;
+    color: #00ff00;
+    z-index: -2;
+  }
+  @keyframes glitch-1 {
+    0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    20% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 2px); }
+    40% { clip-path: inset(40% 0 40% 0); transform: translate(2px, -2px); }
+    60% { clip-path: inset(60% 0 20% 0); transform: translate(-2px, -2px); }
+    80% { clip-path: inset(80% 0 0 0); transform: translate(2px, 2px); }
+  }
+  @keyframes glitch-2 {
+    0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    20% { clip-path: inset(60% 0 20% 0); transform: translate(2px, -2px); }
+    40% { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 2px); }
+    60% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 2px); }
+    80% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+  }
+  .logo-suffix {
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
   }
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
   }
-  .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
+  .nav-link {
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s;
+    font-size: 0.9rem;
+    transition: all 0.3s;
     padding: 0.5rem 0;
+    position: relative;
+    letter-spacing: 0.05em;
   }
-  .nav-links a:hover {
-    color: white;
+  .link-bracket {
+    color: #00ffff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .nav-link:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+  .nav-link:hover .link-bracket {
+    opacity: 1;
+  }
+  @media (max-width: 900px) {
+    .nav-links {
+      gap: 1rem;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+    }
   }
 </style>
