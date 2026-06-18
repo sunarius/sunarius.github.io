@@ -24,29 +24,29 @@ const { title, description = "我的个人博客" } = Astro.props;
 
 <style is:global>
   :root {
-    --accent: 0, 255, 255;
-    --accent-light: 255, 0, 255;
-    --accent-dark: 0, 200, 200;
+    --accent: 255, 154, 158;
+    --accent-light: 250, 208, 196;
+    --accent-dark: 255, 107, 107;
     --accent-gradient: linear-gradient(
-      45deg,
-      #00ffff,
-      #ff00ff 50%,
-      #00ff88 100%
+      135deg,
+      #ff9a9e 0%,
+      #fecfef 50%,
+      #fecfef 100%
     );
-    --bg-primary: #0a0a12;
-    --bg-secondary: #12121f;
-    --bg-header: #0d0d18;
-    --text-primary: #e0e0ff;
-    --text-secondary: #a0a0c0;
-    --text-muted: #606080;
-    --border-color: #00ffff;
-    --neon-cyan: #00ffff;
-    --neon-pink: #ff00ff;
-    --neon-green: #00ff88;
-    --neon-purple: #8b5cf6;
+    --bg-primary: #fff5f5;
+    --bg-secondary: #fff0f3;
+    --bg-header: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    --text-primary: #5d4e60;
+    --text-secondary: #8b7d8b;
+    --text-muted: #a99aa9;
+    --border-color: #ffdde1;
+    --warm-pink: #ff9a9e;
+    --warm-peach: #fecfef;
+    --warm-coral: #ff6b6b;
+    --warm-cream: #fff5f5;
   }
   html {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -56,45 +56,22 @@ const { title, description = "我的个人博客" } = Astro.props;
     margin: 0;
     min-height: 100vh;
     background:
-      radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 10% 20%, rgba(255, 154, 158, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(254, 207, 239, 0.15) 0%, transparent 40%),
       var(--bg-primary);
   }
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 255, 255, 0.03) 2px,
-        rgba(0, 255, 255, 0.03) 4px
-      );
-    pointer-events: none;
-    z-index: 1000;
-  }
   ::selection {
-    background: rgba(0, 255, 255, 0.3);
-    color: #fff;
+    background: rgba(255, 154, 158, 0.3);
+    color: var(--text-primary);
   }
   code {
-    font-family:
-      'Fira Code',
-      Menlo,
-      Monaco,
-      'Courier New',
-      monospace;
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    font-family: 'Fira Code', Menlo, Monaco, 'Courier New', monospace;
+    background: rgba(255, 154, 158, 0.1);
+    border: 1px solid rgba(255, 154, 158, 0.2);
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.9em;
-    color: #00ffff;
+    color: #ff6b6b;
   }
   pre code {
     padding: 0;

@@ -20,40 +20,25 @@ const posts = [
 ];
 ---
 
-<Layout title="◈ 健康幸福 | WELLNESS">
+<Layout title="🌿 健康幸福">
   <Header />
   <main>
     <div class="section-header">
-      <div class="icon-large">◈</div>
+      <span class="section-icon">🌿</span>
       <h1>健康幸福</h1>
-      <div class="subtitle">WELLNESS_MODULE_v1.0</div>
-      <div class="divider"></div>
-    </div>
-
-    <div class="terminal-box">
-      <div class="terminal-line">
-        <span class="prompt">$</span>
-        <span class="command">cat wellness.manifest</span>
-      </div>
-      <div class="content-box">
-        <span class="highlight">[STATUS]</span> 身体是灵魂的容器，幸福是生命最本真的追求。
-      </div>
+      <p class="section-desc">身体是灵魂的容器，幸福是生命最本真的追求</p>
     </div>
 
     <div class="posts-grid">
       {posts.map((post, index) => (
-        <article class="post-card" style={`animation-delay: ${index * 0.2}s`}>
+        <article class="post-card" style={`animation-delay: ${index * 0.1}s`}>
           <div class="card-header">
-            <span class="card-icon">◈</span>
-            <span class="card-id">ID_{String(index + 1).padStart(3, '0')}</span>
+            <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
+            <span class="date">{post.date.toLocaleDateString('zh-CN')}</span>
           </div>
-          <h3 class="post-title">
-            <a href={`/blog/${post.slug}`}>{post.title}</a>
-          </h3>
-          <p class="post-desc">{post.description}</p>
+          <p class="card-desc">{post.description}</p>
           <div class="card-footer">
-            <span class="timestamp">{post.date.toLocaleDateString('zh-CN')}</span>
-            <span class="access-btn">[访问]</span>
+            <span class="read-more">阅读更多 →</span>
           </div>
         </article>
       ))}
@@ -64,97 +49,52 @@ const posts = [
 
 <style>
   main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
     min-height: calc(100vh - 200px);
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    padding: 2rem 0;
   }
 
-  .icon-large {
-    font-size: 3rem;
-    color: #00ff88;
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-    margin-bottom: 1rem;
+  .section-icon {
+    font-size: 4rem;
+    display: inline-block;
     animation: float 3s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
   }
 
   h1 {
-    color: #00ff88;
-    margin: 0 0 0.5rem;
-    font-size: 2.5rem;
+    color: #52c41a;
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem;
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
   }
 
-  .subtitle {
-    color: rgba(0, 255, 136, 0.5);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-  }
-
-  .divider {
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #00ff88, transparent);
-    margin: 1.5rem auto;
-  }
-
-  .terminal-box {
-    background: rgba(0, 255, 136, 0.05);
-    border: 1px solid rgba(0, 255, 136, 0.3);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
-    font-family: 'Fira Code', monospace;
-  }
-
-  .terminal-line {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .prompt {
-    color: #ff00ff;
-    font-weight: bold;
-  }
-
-  .command {
-    color: #00ffff;
-  }
-
-  .content-box {
-    color: rgba(224, 224, 255, 0.9);
-    line-height: 1.8;
-    padding-left: 1.5rem;
-  }
-
-  .highlight {
-    color: #00ff88;
-    font-weight: bold;
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
   }
 
   .posts-grid {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
+    margin-top: 1rem;
   }
 
   .post-card {
-    background: rgba(10, 15, 30, 0.8);
-    border: 1px solid rgba(0, 255, 136, 0.2);
-    border-radius: 8px;
+    background: white;
+    border: 1px solid rgba(82, 196, 26, 0.15);
+    border-radius: 16px;
     padding: 1.5rem;
     transition: all 0.3s;
     animation: fadeIn 0.5s ease-out forwards;
@@ -162,84 +102,66 @@ const posts = [
   }
 
   @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
   }
 
   .post-card:hover {
-    border-color: rgba(0, 255, 136, 0.5);
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+    border-color: rgba(82, 196, 26, 0.3);
+    box-shadow: 0 4px 20px rgba(82, 196, 26, 0.1);
     transform: translateY(-3px);
   }
 
   .card-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
   }
 
-  .card-icon {
-    color: #00ff88;
+  .card-header h3 {
+    margin: 0;
     font-size: 1.2rem;
+    flex: 1;
   }
 
-  .card-id {
-    color: rgba(0, 255, 136, 0.5);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
-  }
-
-  .post-title a {
-    color: #00ffff;
+  .card-header h3 a {
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.3rem;
-    transition: all 0.3s;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: color 0.3s;
   }
 
-  .post-title a:hover {
-    color: #00ff88;
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  .card-header h3 a:hover {
+    color: #52c41a;
   }
 
-  .post-desc {
-    color: rgba(224, 224, 255, 0.7);
-    margin: 0.75rem 0;
+  .date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .card-desc {
+    color: var(--text-secondary);
     line-height: 1.6;
+    margin: 0;
   }
 
   .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(0, 255, 136, 0.1);
+    border-top: 1px solid rgba(82, 196, 26, 0.1);
   }
 
-  .timestamp {
-    color: rgba(224, 224, 255, 0.5);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
-  }
-
-  .access-btn {
-    color: #ff00ff;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
+  .read-more {
+    color: #52c41a;
+    font-size: 0.9rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s;
   }
 
-  .access-btn:hover {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  .read-more:hover {
+    color: #389e0d;
   }
 </style>

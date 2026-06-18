@@ -4,108 +4,58 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const modules = [
-  { name: '健康幸福', icon: '◈', color: '#00ff88', href: '/wellness' },
-  { name: '事业有成', icon: '◉', color: '#00ffff', href: '/career' },
-  { name: '财富自由', icon: '◆', color: '#ffd700', href: '/wealth' },
-  { name: '随念随想', icon: '◇', color: '#8b5cf6', href: '/thoughts' },
+  { name: '健康幸福', icon: '🌿', color: '#52c41a', href: '/wellness' },
+  { name: '事业有成', icon: '💼', color: '#1890ff', href: '/career' },
+  { name: '财富自由', icon: '💎', color: '#faad14', href: '/wealth' },
+  { name: '随念随想', icon: '💭', color: '#722ed1', href: '/thoughts' },
 ];
 ---
 
-<Layout title="◎ @孙亚冬 | ABOUT">
+<Layout title="👋 孙亚冬">
   <Header />
   <main>
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">user_profile.dat</span>
+    <div class="about-card">
+      <div class="profile-section">
+        <div class="avatar">
+          <span class="avatar-emoji">👋</span>
+        </div>
+        <h1>你好，我是孙亚冬</h1>
+        <p class="tagline">代码工匠 · 终身学习者 · 生活探索者</p>
       </div>
 
-      <div class="terminal-content">
-        <div class="ascii-art">
-    ███████╗██╗   ██╗███╗   ██╗     ██╗   ██╗██╗   ██╗
-    ██╔════╝╚██╗ ██╔╝████╗  ██║     ╚██╗ ██╔╝╚██╗ ██╔╝
-    ███████╗ ╚████╔╝ ██╔██╗ ██║█████╗╚████╔╝  ╚████╔╝
-    ╚════██║  ╚██╔╝  ██║╚██╗██║╚════╝ ██╔═██╗   ╚██╔╝
-    ███████║   ██║   ██║ ╚████║      ██║  ██╗   ██║
-    ╚══════╝   ╚═╝   ╚═╝  ╚═══╝      ╚═╝  ╚═╝   ╚═╝
-        </div>
+      <div class="intro-section">
+        <p>
+          欢迎来到我的小窝！这里是我记录生活、分享成长的地方 💝
+        </p>
+        <p>
+          人生是一场修行，而文字是思考的轨迹。
+          愿在这里与你分享成长，共同进步 ✨
+        </p>
+      </div>
 
-        <div class="profile-section">
-          <div class="line">
-            <span class="prompt">></span>
-            <span class="label">IDENTITY:</span>
-            <span class="value highlight">孙亚冬</span>
-          </div>
-          <div class="line">
-            <span class="prompt">></span>
-            <span class="label">HANDLE:</span>
-            <span class="value">@sunarius / @yadongSun</span>
-          </div>
-          <div class="line">
-            <span class="prompt">></span>
-            <span class="label">ROLE:</span>
-            <span class="value">Developer ◈ Dreamer ◈ Creator</span>
-          </div>
-          <div class="line">
-            <span class="prompt">></span>
-            <span class="label">STATUS:</span>
-            <span class="value status">
-              <span class="status-dot"></span>
-              ONLINE
-            </span>
-          </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div class="bio-section">
-          <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat about.txt</span>
-          </div>
-          <div class="output">
-            <p>欢迎来到我的数字空间。</p>
-            <p>这里是我记录人生旅程的地方——</p>
-            <p>代码与梦想交织，现实与未来碰撞。</p>
-          </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div class="modules-section">
-          <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">ls modules/</span>
-          </div>
-          <div class="modules-grid">
-            {modules.map(module => (
-              <a href={module.href} class="module-item" style={`--module-color: ${module.color}`}>
-                <span class="module-icon">{module.icon}</span>
-                <span class="module-name">{module.name}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div class="contact-section">
-          <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat contact.info</span>
-          </div>
-          <div class="contact-grid">
-            <a href="https://github.com/yadongSun" target="_blank" class="contact-item">
-              <span class="contact-label">GITHUB</span>
-              <span class="contact-value">@yadongSun</span>
+      <div class="modules-section">
+        <h2>这里有什么</h2>
+        <div class="modules-grid">
+          {modules.map(module => (
+            <a href={module.href} class="module-item" style={`--module-color: ${module.color}`}>
+              <span class="module-icon">{module.icon}</span>
+              <span class="module-name">{module.name}</span>
             </a>
-            <a href="https://sunarius.github.io" class="contact-item">
-              <span class="contact-label">WEB</span>
-              <span class="contact-value">sunarius.github.io</span>
-            </a>
-          </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h2>找到我</h2>
+        <div class="contact-list">
+          <a href="https://github.com/yadongSun" target="_blank" class="contact-item">
+            <span class="contact-icon">🐙</span>
+            <span class="contact-text">GitHub @yadongSun</span>
+          </a>
+          <a href="https://sunarius.github.io" class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <span class="contact-text">sunarius.github.io</span>
+          </a>
         </div>
       </div>
     </div>
@@ -115,146 +65,92 @@ const modules = [
 
 <style>
   main {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
     min-height: calc(100vh - 200px);
   }
 
-  .terminal-window {
-    background: rgba(10, 10, 20, 0.9);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow:
-      0 0 30px rgba(0, 255, 255, 0.1),
-      inset 0 0 30px rgba(0, 255, 255, 0.02);
-  }
-
-  .terminal-header {
-    background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-  }
-
-  .terminal-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px currentColor;
-  }
-  .red { background: #ff5f56; color: #ff5f56; }
-  .yellow { background: #ffbd2e; color: #ffbd2e; }
-  .green { background: #27c93f; color: #27c93f; }
-
-  .terminal-title {
-    margin-left: auto;
-    color: rgba(255, 255, 255, 0.5);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
-  }
-
-  .terminal-content {
-    padding: 2rem;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-  }
-
-  .ascii-art {
-    color: #00ffff;
-    font-size: 0.6rem;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 2rem;
-    opacity: 0.8;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  .about-card {
+    background: white;
+    border: 1px solid rgba(255, 154, 158, 0.2);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(255, 154, 158, 0.1);
   }
 
   .profile-section {
+    text-align: center;
     margin-bottom: 2rem;
   }
 
-  .line {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .prompt {
-    color: #ff00ff;
-    font-weight: bold;
-  }
-
-  .label {
-    color: rgba(255, 255, 255, 0.5);
-    min-width: 80px;
-  }
-
-  .value {
-    color: #00ffff;
-  }
-
-  .value.highlight {
-    color: #00ff88;
-    font-size: 1.2rem;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-  }
-
-  .status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #00ff88;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff88;
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
     border-radius: 50%;
-    box-shadow: 0 0 10px #00ff88;
-    animation: pulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 20px rgba(255, 154, 158, 0.3);
+    animation: float 3s ease-in-out infinite;
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
-  .divider-line {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-    margin: 2rem 0;
+  .avatar-emoji {
+    font-size: 3rem;
   }
 
-  .command {
-    color: #00ffff;
+  h1 {
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
   }
 
-  .output {
-    margin: 1rem 0 1rem 1.5rem;
-    color: rgba(224, 224, 255, 0.9);
+  .tagline {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .intro-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f3 100%);
+    border-radius: 16px;
+  }
+
+  .intro-section p {
+    margin: 0 0 1rem;
+    color: var(--text-secondary);
     line-height: 1.8;
   }
 
-  .output p {
-    margin: 0.5rem 0;
+  .intro-section p:last-child {
+    margin-bottom: 0;
   }
 
-  .modules-section {
-    margin: 2rem 0;
+  .modules-section, .contact-section {
+    margin-top: 2rem;
+  }
+
+  h2 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin: 0 0 1rem;
+    font-weight: 600;
   }
 
   .modules-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
   }
 
   .module-item {
@@ -262,84 +158,72 @@ const modules = [
     align-items: center;
     gap: 0.75rem;
     padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s;
   }
 
   .module-item:hover {
     border-color: var(--module-color);
-    box-shadow: 0 0 20px var(--module-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   }
 
   .module-icon {
-    font-size: 1.2rem;
-    color: var(--module-color);
+    font-size: 1.5rem;
   }
 
   .module-name {
-    color: rgba(224, 224, 255, 0.9);
-    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
   }
 
-  .module-item:hover .module-name {
-    color: var(--module-color);
-  }
-
-  .contact-section {
-    margin-top: 2rem;
-  }
-
-  .contact-grid {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s;
   }
 
   .contact-item:hover {
-    border-color: #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    border-color: #ff9a9e;
+    transform: translateX(5px);
   }
 
-  .contact-label {
-    color: #ff00ff;
-    font-size: 0.8rem;
-    min-width: 80px;
+  .contact-icon {
+    font-size: 1.25rem;
   }
 
-  .contact-value {
-    color: #00ffff;
+  .contact-text {
+    color: var(--text-secondary);
   }
 
-  .contact-item:hover .contact-value {
-    color: #00ff88;
+  .contact-item:hover .contact-text {
+    color: #ff9a9e;
   }
 
   @media (max-width: 600px) {
-    .ascii-art {
-      font-size: 0.4rem;
+    .about-card {
+      padding: 1.5rem;
     }
     .modules-grid {
       grid-template-columns: 1fr;
     }
-    .terminal-content {
-      padding: 1rem;
+    h1 {
+      font-size: 1.5rem;
     }
   }
 </style>

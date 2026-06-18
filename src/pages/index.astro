@@ -2,349 +2,275 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const modules = [
+  {
+    title: '健康幸福',
+    href: '/wellness',
+    desc: '身体是灵魂的容器',
+    icon: '🌿',
+    color: '#52c41a'
+  },
+  {
+    title: '事业有成',
+    href: '/career',
+    desc: '在代码世界里探索',
+    icon: '💼',
+    color: '#1890ff'
+  },
+  {
+    title: '财富自由',
+    href: '/wealth',
+    desc: '金钱是工具，自由是目的',
+    icon: '💎',
+    color: '#faad14'
+  },
+  {
+    title: '随念随想',
+    href: '/thoughts',
+    desc: '捕捉稍纵即逝的思绪',
+    icon: '💭',
+    color: '#722ed1'
+  },
+];
 ---
 
-<Layout title="孙亚冬 | 数字空间">
+<Layout title="亚冬的小窝 🏠">
   <Header />
   <main>
-    <canvas id="matrix-canvas"></canvas>
-
-    <div class="hero-container">
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <span class="terminal-dot red"></span>
-          <span class="terminal-dot yellow"></span>
-          <span class="terminal-dot green"></span>
-          <span class="terminal-title">terminal@sunarius ~</span>
-        </div>
-        <div class="terminal-content">
-          <div class="line">
-            <span class="prompt">$</span>
-            <span class="command typing" data-text="whoami"></span>
-            <span class="cursor">_</span>
-          </div>
-          <div class="output name-reveal">
-            <span class="ascii-line">╔════════════════════════════════════════╗</span>
-            <span class="ascii-line">║     孙亚冬 · SUN YA DONG · SYD        ║</span>
-            <span class="ascii-line">║                                        ║</span>
-            <span class="ascii-line">║   ◉ Developer  ◈ Dreamer  ◆ Creator    ║</span>
-            <span class="ascii-line">╚════════════════════════════════════════╝</span>
-          </div>
-          <div class="line delay-1">
-            <span class="prompt">$</span>
-            <span class="command">cat identity.txt</span>
-          </div>
-          <div class="output delay-2">
-            <span class="highlight">[STATUS]</span> Online & Exploring<br/>
-            <span class="highlight">[LOCATION]</span> Digital Space<br/>
-            <span class="highlight">[MISSION]</span> 记录成长 · 分享感悟 · 探索未知
-          </div>
-          <div class="line delay-3">
-            <span class="prompt">$</span>
-            <span class="cursor blink">_</span>
-          </div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          <span class="wave">👋</span>
+          <br/>
+          欢迎来到<br/>
+          <span class="gradient-text">亚冬的小窝</span>
+        </h1>
+        <p class="intro">
+          这里记录着我的生活点滴、成长足迹和美好瞬间
+        </p>
+        <div class="divider">
+          <span>✦</span>
+          <span>✿</span>
+          <span>✦</span>
         </div>
       </div>
+    </section>
 
-      <div class="enter-section">
-        <a href="/wellness" class="enter-btn">
-          <span class="btn-bracket">[</span>
-          <span class="btn-text">ENTER_SYSTEM</span>
-          <span class="btn-bracket">]</span>
+    <section class="modules">
+      {modules.map(module => (
+        <a href={module.href} class="module-card" style={`--card-color: ${module.color}`}>
+          <div class="card-icon">{module.icon}</div>
+          <h3>{module.title}</h3>
+          <p>{module.desc}</p>
+          <span class="arrow">→</span>
         </a>
-      </div>
-    </div>
+      ))}
+    </section>
 
-    <div class="grid-overlay"></div>
+    <section class="cta">
+      <a href="/about" class="btn">
+        <span>了解更多</span>
+        <span class="btn-icon">🌸</span>
+      </a>
+    </section>
   </main>
   <Footer />
 </Layout>
 
-<script>
-  // Matrix rain effect
-  const canvas = document.getElementById('matrix-canvas');
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-  const drops = [];
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-
-  for (let i = 0; i < columns; i++) {
-    drops[i] = Math.random() * -100;
-  }
-
-  function draw() {
-    ctx.fillStyle = 'rgba(10, 10, 18, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-      const char = chars[Math.floor(Math.random() * chars.length)];
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
-
-      // Gradient colors
-      if (Math.random() > 0.98) {
-        ctx.fillStyle = '#ff00ff';
-      } else if (Math.random() > 0.9) {
-        ctx.fillStyle = '#00ffff';
-      } else {
-        ctx.fillStyle = 'rgba(0, 255, 136, 0.8)';
-      }
-
-      ctx.fillText(char, x, y);
-
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i]++;
-    }
-  }
-
-  setInterval(draw, 50);
-
-  // Typing effect
-  const typingElements = document.querySelectorAll('.typing');
-  typingElements.forEach(el => {
-    const text = el.dataset.text;
-    let i = 0;
-    const typeInterval = setInterval(() => {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-      } else {
-        clearInterval(typeInterval);
-      }
-    }, 150);
-  });
-</script>
-
 <style>
   main {
-    min-height: calc(100vh - 120px);
-    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 200px);
+  }
+
+  .hero {
+    text-align: center;
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-content {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f3 100%);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 20px rgba(255, 154, 158, 0.1);
+    border: 1px solid rgba(255, 154, 158, 0.2);
+  }
+
+  .wave {
+    font-size: 3rem;
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-10deg); }
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ff9a9e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .intro {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+  }
+
+  .divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    gap: 1rem;
+    color: #ff9a9e;
+    font-size: 1.2rem;
   }
 
-  #matrix-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
   }
 
-  .grid-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-      linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .hero-container {
-    position: relative;
-    z-index: 10;
-    width: 90%;
-    max-width: 700px;
-    padding: 2rem;
-  }
-
-  .terminal-window {
-    background: rgba(10, 10, 20, 0.9);
-    border: 1px solid rgba(0, 255, 255, 0.5);
-    border-radius: 8px;
-    box-shadow:
-      0 0 30px rgba(0, 255, 255, 0.2),
-      inset 0 0 30px rgba(0, 255, 255, 0.05);
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-  }
-
-  .terminal-header {
-    background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-  }
-
-  .terminal-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px currentColor;
-  }
-  .red { background: #ff5f56; color: #ff5f56; }
-  .yellow { background: #ffbd2e; color: #ffbd2e; }
-  .green { background: #27c93f; color: #27c93f; }
-
-  .terminal-title {
-    margin-left: auto;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.8rem;
-    font-family: 'Fira Code', monospace;
-  }
-
-  .terminal-content {
+  .module-card {
+    background: white;
+    border: 1px solid rgba(255, 154, 158, 0.15);
+    border-radius: 16px;
     padding: 1.5rem;
-    font-family: 'Fira Code', 'Consolas', monospace;
-    font-size: 0.9rem;
-  }
-
-  .line {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-  }
-
-  .delay-1 { animation-delay: 2s; }
-  .delay-2 { animation-delay: 3.5s; }
-  .delay-3 { animation-delay: 5s; }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  .prompt {
-    color: #ff00ff;
-    font-weight: bold;
-  }
-
-  .command {
-    color: #00ffff;
-  }
-
-  .cursor {
-    color: #00ffff;
-    animation: blink 1s infinite;
-  }
-
-  .cursor.blink {
-    animation: blink 1s infinite;
-  }
-
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-
-  .output {
-    margin: 1rem 0 1.5rem 1.5rem;
-    color: rgba(224, 224, 255, 0.9);
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-    animation-delay: 1.5s;
-  }
-
-  .output.delay-2 {
-    animation-delay: 4s;
-  }
-
-  .name-reveal {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.85rem;
-  }
-
-  .ascii-line {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    letter-spacing: 1px;
-  }
-
-  .highlight {
-    color: #ff00ff;
-    font-weight: bold;
-  }
-
-  .enter-section {
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  .enter-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: transparent;
-    border: 2px solid #00ffff;
-    color: #00ffff;
     text-decoration: none;
-    font-family: 'Fira Code', monospace;
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
+    text-align: center;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   }
 
-  .enter-btn:hover {
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
-    transform: translateY(-2px);
-  }
-
-  .btn-bracket {
-    color: #ff00ff;
-  }
-
-  .btn-text {
-    position: relative;
-    z-index: 2;
-  }
-
-  .enter-btn::before {
+  .module-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-color);
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
-  .enter-btn:hover::before {
-    left: 100%;
+  .module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 154, 158, 0.15);
+    border-color: rgba(255, 154, 158, 0.3);
+  }
+
+  .module-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s;
+  }
+
+  .module-card:hover .card-icon {
+    transform: scale(1.2) rotate(5deg);
+  }
+
+  .module-card h3 {
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .module-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .arrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: #ff9a9e;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  .module-card:hover .arrow {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 154, 158, 0.4);
+  }
+
+  .btn-icon {
+    transition: transform 0.3s;
+  }
+
+  .btn:hover .btn-icon {
+    transform: rotate(360deg);
   }
 
   @media (max-width: 600px) {
-    .terminal-content {
-      font-size: 0.75rem;
-      padding: 1rem;
+    .modules {
+      grid-template-columns: 1fr;
     }
-    .name-reveal {
-      font-size: 0.7rem;
+    h1 {
+      font-size: 1.5rem;
     }
-    .enter-btn {
-      font-size: 0.85rem;
-      padding: 0.75rem 1.5rem;
+    .hero-content {
+      padding: 2rem 1.5rem;
     }
   }
 </style>

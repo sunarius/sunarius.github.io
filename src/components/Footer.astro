@@ -3,93 +3,56 @@ const today = new Date();
 ---
 
 <footer>
-  <div class="footer-line"></div>
   <div class="footer-content">
-    <span class="footer-text">
-      <span class="bracket">[</span>
+    <div class="footer-hearts">💝 Made with love 💝</div>
+    <div class="footer-text">
       <span class="year">{today.getFullYear()}</span>
-      <span class="bracket">]</span>
-    </span>
-    <span class="divider">::</span>
-    <span class="name">孙亚冬</span>
-    <span class="divider">::</span>
-    <span class="status">
-      <span class="status-dot"></span>
-      SYSTEM_ONLINE
-    </span>
-  </div>
-  <div class="footer-decoration">
-    ◈ ◉ ◆ ◇ ◎
+      <span class="name">亚冬的小窝</span>
+    </div>
+    <div class="footer-decoration">
+      🌸 🌿 ✨ 🌸
+    </div>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
-    background: rgba(10, 10, 20, 0.95);
-    border-top: 1px solid rgba(0, 255, 255, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  .footer-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent);
-    animation: shimmer 3s linear infinite;
-  }
-  @keyframes shimmer {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f3 100%);
+    border-top: 1px solid rgba(255, 154, 158, 0.2);
   }
   .footer-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
-    color: rgba(224, 224, 255, 0.7);
+    gap: 0.75rem;
   }
-  .bracket {
-    color: #ff00ff;
+  .footer-hearts {
+    color: #ff9a9e;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
-  .year {
-    color: #00ffff;
-  }
-  .divider {
-    color: rgba(0, 255, 255, 0.5);
-  }
-  .name {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  }
-  .status {
+  .footer-text {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #00ff88;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
   }
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff88;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #00ff88;
-    animation: pulse 2s ease-in-out infinite;
+  .year {
+    color: #ff9a9e;
+    font-weight: 600;
   }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  .name {
+    color: var(--text-primary);
+    font-weight: 500;
   }
   .footer-decoration {
-    margin-top: 1rem;
-    color: rgba(0, 255, 255, 0.3);
-    letter-spacing: 1rem;
-    font-size: 0.8rem;
+    color: #ff9a9e;
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    margin-top: 0.5rem;
+    opacity: 0.7;
   }
 </style>
