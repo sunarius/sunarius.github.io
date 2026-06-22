@@ -23,6 +23,15 @@ import Footer from '../components/Footer.astro';
             <span class="value">孙亚冬的内省地</span>
           </div>
         </div>
+
+        <div class="certificates">
+          <h3>专业认证</h3>
+          <div class="cert-list">
+            <span class="cert-item">CISSP</span>
+            <span class="cert-item">PMP</span>
+            <span class="cert-item">NPDP</span>
+          </div>
+        </div>
       </div>
     </aside>
 
@@ -194,6 +203,39 @@ import Footer from '../components/Footer.astro';
     background: #1a1a1a;
     color: #ffffff;
     border-color: #1a1a1a;
+  }
+
+  /* 证书区域 */
+  .certificates {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .certificates h3 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #999999;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cert-item {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    padding: 0.4rem 0.75rem;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    text-align: center;
   }
 
   /* 右侧内容 */
