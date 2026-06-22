@@ -1,5 +1,5 @@
 ---
-import DocLayout from '../../layouts/DocLayout.astro';
+import DocLayout from '../../../layouts/DocLayout.astro';
 
 const sections = [
   { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
@@ -9,7 +9,13 @@ const sections = [
   { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
 ];
 
+const subSections = [
+  { id: 'soc-overview', title: 'SOC 建设指南', href: '/career/soc' },
+  { id: 'ai-soc', title: 'AI SOC安全运营中心建设', href: '/career/soc/ai-soc' },
+];
+
 const currentSection = '安全运营';
+const currentSubSection = 'soc-overview';
 ---
 
 <DocLayout
@@ -18,6 +24,8 @@ const currentSection = '安全运营';
   moduleHref="/career"
   sections={sections}
   currentSection={currentSection}
+  subSections={subSections}
+  currentSubSection={currentSubSection}
 >
   <h1>🛡️ 安全运营</h1>
   <p class="lead">安全运营是保障企业信息安全的核心能力。通过建立完善的 SOC 体系，实现安全事件的快速发现、分析和处置。</p>

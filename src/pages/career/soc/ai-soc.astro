@@ -1,0 +1,76 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const subSections = [
+  { id: 'soc-overview', title: 'SOC 建设指南', href: '/career/soc' },
+  { id: 'ai-soc', title: 'AI SOC安全运营中心建设', href: '/career/soc/ai-soc' },
+];
+
+const currentSection = '安全运营';
+const currentSubSection = 'ai-soc';
+---
+
+<DocLayout
+  title="🤖 AI SOC安全运营中心建设"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+  subSections={subSections}
+  currentSubSection={currentSubSection}
+>
+  <h1>🤖 AI SOC安全运营中心建设</h1>
+  <p class="lead">将人工智能技术融入安全运营中心，实现智能化威胁检测、自动化事件响应和预测性安全防护。</p>
+
+  <h2>AI SOC 架构设计</h2>
+  <p>AI SOC 是传统 SOC 的智能化升级，通过机器学习、自然语言处理、知识图谱等技术，大幅提升安全运营效率。</p>
+
+  <h3>核心组件</h3>
+  <ul>
+    <li><strong>智能日志分析</strong>：利用 NLP 技术解析非结构化日志</li>
+    <li><strong>异常行为检测</strong>：基于深度学习的 UEBA 系统</li>
+    <li><strong>威胁情报融合</strong>：AI 驱动的情报关联分析</li>
+    <li><strong>自动化编排</strong>：SOAR 与 AI 决策的结合</li>
+  </ul>
+
+  <h2>智能告警降噪</h2>
+  <p>利用机器学习算法过滤误报，将安全团队从海量告警中解放出来。</p>
+
+  <h3>降噪技术</h3>
+  <ul>
+    <li><strong>告警聚合</strong>：将相似告警聚类，减少重复</li>
+    <li><strong>误报学习</strong>：从历史数据学习误报模式</li>
+    <li><strong>优先级排序</strong>：AI 评估告警严重程度</li>
+    <li><strong>上下文增强</strong>：自动关联资产和威胁情报</li>
+  </ul>
+
+  <h2>智能事件调查</h2>
+  <p>AI 辅助安全分析师进行事件调查，自动收集证据、生成时间线、推荐处置方案。</p>
+
+  <h3>调查能力</h3>
+  <ul>
+    <li><strong>根因分析</strong>：自动追溯攻击路径</li>
+    <li><strong>影响评估</strong>：预测事件潜在影响范围</li>
+    <li><strong>知识推荐</strong>：推荐相关历史案例和解决方案</li>
+    <li><strong>报告生成</strong>：自动生成事件报告</li>
+  </ul>
+
+  <h2>预测性安全</h2>
+  <p>从被动响应转向主动防御，利用预测模型提前发现潜在威胁。</p>
+
+  <h3>预测能力</h3>
+  <ul>
+    <li><strong>漏洞风险评估</strong>：预测漏洞被利用的可能性</li>
+    <li><strong>攻击面分析</strong>：持续识别暴露面风险</li>
+    <li><strong>趋势预测</strong>：基于历史数据预测攻击趋势</li>
+    <li><strong>能力规划</strong>：预测安全资源需求</li>
+  </ul>
+</DocLayout>
