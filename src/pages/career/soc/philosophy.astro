@@ -1,0 +1,77 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const subSections = [
+  { id: 'philosophy', title: '运营之道', href: '/career/soc/philosophy' },
+  { id: 'soc-overview', title: 'SOC 建设指南', href: '/career/soc' },
+  { id: 'ai-soc', title: 'AI SOC安全运营中心建设', href: '/career/soc/ai-soc' },
+];
+
+const currentSection = '安全运营';
+const currentSubSection = 'philosophy';
+---
+
+<DocLayout
+  title="📖 运营之道"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+  subSections={subSections}
+  currentSubSection={currentSubSection}
+>
+  <h1>📖 运营之道</h1>
+  <p class="lead">安全运营不仅是技术工作，更是一门艺术。探索安全运营的理念、方法和最佳实践。</p>
+
+  <h2>运营理念</h2>
+  <p>安全运营的核心在于平衡安全与业务，在保障安全的同时不影响业务效率。</p>
+
+  <h3>核心理念</h3>
+  <ul>
+    <li><strong>预防优于处置</strong>：主动防御比被动响应更有效</li>
+    <li><strong>持续改进</strong>：安全运营是一个不断优化的过程</li>
+    <li><strong>数据驱动</strong>：用数据说话，量化安全价值</li>
+    <li><strong>协同作战</strong>：安全是全员的责任，不是安全团队单打独斗</li>
+  </ul>
+
+  <h2>运营框架</h2>
+  <p>建立系统化的安全运营框架，从策略到执行的完整闭环。</p>
+
+  <h3>框架要素</h3>
+  <ul>
+    <li><strong>策略层</strong>：安全战略与目标设定</li>
+    <li><strong>战术层</strong>：安全能力与流程建设</li>
+    <li><strong>执行层</strong>：日常运营与事件响应</li>
+    <li><strong>评估层</strong>：效果度量与持续优化</li>
+  </ul>
+
+  <h2>最佳实践</h2>
+  <p>总结安全运营的最佳实践，避免踩坑，少走弯路。</p>
+
+  <h3>实践要点</h3>
+  <ul>
+    <li><strong>自动化优先</strong>：能用工具解决的不靠人工</li>
+    <li><strong>标准化流程</strong>：建立标准化的事件响应流程</li>
+    <li><strong>知识沉淀</strong>：将经验转化为可复用的知识</li>
+    <li><strong>度量与反馈</strong>：建立运营指标，持续改进</li>
+  </ul>
+
+  <h2>团队建设</h2>
+  <p>打造高效的安全运营团队，从人员、技能到文化的全方位建设。</p>
+
+  <h3>建设要点</h3>
+  <ul>
+    <li><strong>角色分工</strong>：明确岗位职责，专业的人做专业的事</li>
+    <li><strong>能力培养</strong>：持续学习，跟上威胁演进</li>
+    <li><strong>协作文化</strong>：打破部门墙，建立协作机制</li>
+    <li><strong>激励体系</strong>：认可价值，激发团队动力</li>
+  </ul>
+</DocLayout>
