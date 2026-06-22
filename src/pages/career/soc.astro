@@ -1,0 +1,59 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const currentSection = '安全运营';
+---
+
+<DocLayout
+  title="🛡️ 安全运营"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🛡️ 安全运营</h1>
+  <p class="lead">安全运营是保障企业信息安全的核心能力。通过建立完善的 SOC 体系，实现安全事件的快速发现、分析和处置。</p>
+
+  <h2>SOC 建设指南</h2>
+  <p>安全运营中心搭建实践，从人员、流程、技术三个维度构建安全运营体系。</p>
+  <p>一个完整的 SOC 需要具备安全监控、威胁检测、事件响应、威胁情报等多个能力模块。</p>
+
+  <h3>SOC 核心能力</h3>
+  <ul>
+    <li><strong>安全监控</strong>：7x24小时持续监控网络流量、系统日志</li>
+    <li><strong>威胁检测</strong>：基于规则和ML的异常检测</li>
+    <li><strong>事件响应</strong>：标准化的事件处置流程</li>
+    <li><strong>威胁情报</strong>：外部威胁信息的收集与应用</li>
+  </ul>
+
+  <h2>威胁情报平台</h2>
+  <p>威胁情报收集与分析，将外部威胁信息转化为内部防御能力。</p>
+
+  <h3>情报来源</h3>
+  <ul>
+    <li><strong>商业情报</strong>：付费威胁情报服务</li>
+    <li><strong>开源情报</strong>：OSINT 社区共享</li>
+    <li><strong>行业共享</strong>：ISAC 等行业组织</li>
+    <li><strong>自主生产</strong>：内部安全事件分析</li>
+  </ul>
+
+  <h2>应急响应手册</h2>
+  <p>安全事件响应流程，从发现到处置的全生命周期管理。</p>
+
+  <h3>响应流程</h3>
+  <ul>
+    <li><strong>检测</strong>：确认安全事件发生</li>
+    <li><strong>抑制</strong>：阻止损害扩大</li>
+    <li><strong>根除</strong>：清除威胁源头</li>
+    <li><strong>恢复</strong>：系统恢复正常运行</li>
+    <li><strong>总结</strong>：事后分析与改进</li>
+  </ul>
+</DocLayout>

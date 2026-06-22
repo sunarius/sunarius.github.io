@@ -1,0 +1,57 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const currentSection = '安全治理';
+---
+
+<DocLayout
+  title="📋 安全治理"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>📋 安全治理</h1>
+  <p class="lead">安全治理是企业安全建设的顶层设计。通过制度、流程、技术相结合的方式，构建可持续的安全能力。</p>
+
+  <h2>安全合规框架</h2>
+  <p>ISO27001/等保2.0 实践，满足监管要求的同时提升安全能力。</p>
+
+  <h3>主要框架</h3>
+  <ul>
+    <li><strong>等保2.0</strong>：中国网络安全等级保护</li>
+    <li><strong>ISO 27001</strong>：国际信息安全管理标准</li>
+    <li><strong>SOC 2</strong>：服务组织控制报告</li>
+    <li><strong>GDPR</strong>：欧盟数据保护条例</li>
+  </ul>
+
+  <h2>安全审计流程</h2>
+  <p>内审与外审最佳实践，持续发现安全问题并改进。</p>
+
+  <h3>审计类型</h3>
+  <ul>
+    <li><strong>内部审计</strong>：自我检查，持续改进</li>
+    <li><strong>外部审计</strong>：第三方评估，独立客观</li>
+    <li><strong>专项审计</strong>：针对特定领域深入检查</li>
+    <li><strong>渗透测试</strong>：模拟攻击，发现漏洞</li>
+  </ul>
+
+  <h2>风险评估模型</h2>
+  <p>定量与定性风险分析，科学评估安全风险并合理投入。</p>
+
+  <h3>评估方法</h3>
+  <ul>
+    <li><strong>资产识别</strong>：梳理需要保护的资产</li>
+    <li><strong>威胁分析</strong>：识别可能的威胁来源</li>
+    <li><strong>脆弱性评估</strong>：发现安全弱点</li>
+    <li><strong>风险计算</strong>：影响 × 可能性</li>
+  </ul>
+</DocLayout>

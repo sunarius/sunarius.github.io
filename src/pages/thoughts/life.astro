@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '读书笔记', title: '📚 读书笔记', href: '/thoughts/reading' },
+  { id: '生活感悟', title: '🌱 生活感悟', href: '/thoughts/life' },
+  { id: '技术思考', title: '💡 技术思考', href: '/thoughts/tech' },
+  { id: '随笔杂谈', title: '✍️ 随笔杂谈', href: '/thoughts/essays' },
+];
+
+const currentSection = '生活感悟';
+---
+
+<DocLayout
+  title="🌱 生活感悟"
+  module="💭 随念随想"
+  moduleHref="/thoughts"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🌱 生活感悟</h1>
+  <p class="lead">生活中的点滴思考，关于成长、关于选择、关于人生。</p>
+
+  <h2>极简主义</h2>
+  <p>少即是多的生活哲学，断舍离的艺术。</p>
+
+  <h3>极简原则</h3>
+  <ul>
+    <li><strong>物品极简</strong>：只保留真正需要的</li>
+    <li><strong>信息极简</strong>：减少信息过载</li>
+    <li><strong>社交极简</strong>：珍惜深度关系</li>
+    <li><strong>目标极简</strong>：专注少数重要目标</li>
+  </ul>
+
+  <h2>时间管理</h2>
+  <p>如何更好地利用时间，提升效率，享受生活。</p>
+
+  <h3>时间法则</h3>
+  <ul>
+    <li><strong>二八法则</strong>：20%的投入带来80%的产出</li>
+    <li><strong>番茄工作法</strong>：专注25分钟，休息5分钟</li>
+    <li><strong>时间块</strong>：为重要事项预留整块时间</li>
+    <li><strong>深度工作</strong>：远离干扰，专注产出</li>
+  </ul>
+
+  <h2>人际关系</h2>
+  <p>关于沟通与相处的思考，建立健康的人际边界。</p>
+
+  <h3>关系原则</h3>
+  <ul>
+    <li><strong>真诚相待</strong>：以真心换真心</li>
+    <li><strong>边界意识</strong>：尊重自己与他人</li>
+    <li><strong>倾听为先</strong>：先理解，再被理解</li>
+    <li><strong>质量重于数量</strong>：几个知心好友胜过百个 acquaintances</li>
+  </ul>
+</DocLayout>

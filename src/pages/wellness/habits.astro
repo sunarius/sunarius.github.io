@@ -1,0 +1,60 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '运动健身', title: '🏃 运动健身', href: '/wellness/fitness' },
+  { id: '饮食营养', title: '🥗 饮食营养', href: '/wellness/nutrition' },
+  { id: '心理健康', title: '🧘 心理健康', href: '/wellness/mental' },
+  { id: '习惯养成', title: '✅ 习惯养成', href: '/wellness/habits' },
+];
+
+const currentSection = '习惯养成';
+---
+
+<DocLayout
+  title="✅ 习惯养成"
+  module="🌿 健康幸福"
+  moduleHref="/wellness"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>✅ 习惯养成</h1>
+  <p class="lead">好习惯是成功的基石。通过微小的改变，逐步建立健康的生活方式。</p>
+
+  <h2>晨间惯例</h2>
+  <p>早起后的黄金一小时，开启美好的一天。</p>
+  <p>早晨的第一小时决定了整天的状态。建立一个固定的晨间流程，让身体和大脑都进入最佳状态。</p>
+
+  <h3>建议流程</h3>
+  <ul>
+    <li><strong>06:30</strong> - 起床，喝温水</li>
+    <li><strong>06:40</strong> - 冥想或拉伸10分钟</li>
+    <li><strong>06:50</strong> - 洗漱、整理</li>
+    <li><strong>07:00</strong> - 营养早餐</li>
+    <li><strong>07:30</strong> - 阅读或学习</li>
+  </ul>
+
+  <h2>微习惯策略</h2>
+  <p>小改变带来大不同，让坚持变得简单。</p>
+  <p>微习惯的核心理念是：把目标设得足够小，小到不可能失败。比如"每天做一个俯卧撑"而不是"每天做100个"。</p>
+
+  <h3>微习惯示例</h3>
+  <ul>
+    <li><strong>运动</strong>：每天穿上运动鞋</li>
+    <li><strong>阅读</strong>：每天读一页书</li>
+    <li><strong>写作</strong>：每天写50个字</li>
+    <li><strong>冥想</strong>：每天冥想1分钟</li>
+  </ul>
+
+  <h2>习惯追踪</h2>
+  <p>用数据记录成长轨迹，见证自己的进步。</p>
+  <p>记录习惯可以增加坚持的动力。看着连续的打卡记录，会产生一种"不想断掉"的心理。</p>
+
+  <h3>追踪方法</h3>
+  <ul>
+    <li><strong>打卡APP</strong>：习惯、小日常等</li>
+    <li><strong>纸质手账</strong>：子弹日记、习惯追踪表</li>
+    <li><strong>电子表格</strong>：Excel/Google Sheets</li>
+    <li><strong>日历标记</strong>：在日历上画✓</li>
+  </ul>
+</DocLayout>

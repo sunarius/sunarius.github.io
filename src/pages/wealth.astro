@@ -3,88 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const subCategories = [
-  {
-    title: '投资理财',
-    icon: '📈',
-    description: 'Investment',
-    bookmarks: [
-      { title: '指数基金投资', url: '#', desc: '长期定投策略与实践' },
-      { title: '股票分析方法', url: '#', desc: '基本面与技术面入门' },
-      { title: '资产配置模型', url: '#', desc: '股债配置与再平衡' },
-    ]
-  },
-  {
-    title: '理财规划',
-    icon: '📊',
-    description: 'Financial Planning',
-    bookmarks: [
-      { title: '家庭资产负债表', url: '#', desc: '理清财务状况的第一步' },
-      { title: '应急资金储备', url: '#', desc: '3-6个月生活费的准备' },
-      { title: '退休规划计算', url: '#', desc: 'FIRE 财务自由之路' },
-    ]
-  },
-  {
-    title: '消费管理',
-    icon: '💳',
-    description: 'Expense Management',
-    bookmarks: [
-      { title: '记账工具对比', url: '#', desc: '找到适合的记账方式' },
-      { title: '预算制定方法', url: '#', desc: '50/30/20 法则实践' },
-      { title: '理性消费指南', url: '#', desc: '区分想要与需要' },
-    ]
-  },
-  {
-    title: '开源增收',
-    icon: '💰',
-    description: 'Income Growth',
-    bookmarks: [
-      { title: '副业探索', url: '#', desc: '斜杠青年的多种可能' },
-      { title: '技能变现', url: '#', desc: '将爱好转化为收入' },
-      { title: '被动收入', url: '#', desc: '睡后收入的构建方法' },
-    ]
-  },
+const sections = [
+  { title: '📈 投资理财', desc: '指数基金、股票分析、资产配置', href: '/wealth/investment' },
+  { title: '📊 理财规划', desc: '资产负债表、应急资金、退休规划', href: '/wealth/planning' },
+  { title: '💳 消费管理', desc: '记账方法、预算制定、理性消费', href: '/wealth/spending' },
+  { title: '💰 开源增收', desc: '副业探索、技能变现、被动收入', href: '/wealth/income' },
 ];
 ---
 
 <Layout title="💎 财富自由">
   <Header />
   <main>
-    <div class="section-header">
-      <span class="section-icon">💎</span>
+    <div class="page-header">
+      <span class="icon">💎</span>
       <h1>财富自由</h1>
-      <p class="section-desc">金钱是工具，自由才是目的</p>
+      <p class="lead">金钱是工具，自由才是目的</p>
     </div>
 
-    <div class="sub-nav">
-      {subCategories.map(sub => (
-        <a href={`#${sub.title}`} class="sub-nav-item">
-          <span class="sub-icon">{sub.icon}</span>
-          <span class="sub-title">{sub.title}</span>
+    <div class="sections-grid">
+      {sections.map(section => (
+        <a href={section.href} class="section-card">
+          <h2>{section.title}</h2>
+          <p>{section.desc}</p>
         </a>
-      ))}
-    </div>
-
-    <div class="categories">
-      {subCategories.map(cat => (
-        <section id={cat.title} class="category-section">
-          <div class="category-header">
-            <span class="category-icon">{cat.icon}</span>
-            <div class="category-title-wrap">
-              <h2 class="category-title">{cat.title}</h2>
-              <span class="category-desc">{cat.description}</span>
-            </div>
-          </div>
-
-          <div class="bookmarks-grid">
-            {cat.bookmarks.map(bookmark => (
-              <a href={bookmark.url} class="bookmark-card">
-                <h3 class="bookmark-title">{bookmark.title}</h3>
-                <p class="bookmark-desc">{bookmark.desc}</p>
-              </a>
-            ))}
-          </div>
-        </section>
       ))}
     </div>
   </main>
@@ -93,139 +34,65 @@ const subCategories = [
 
 <style>
   main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 4rem 2rem;
     min-height: calc(100vh - 140px);
   }
 
-  .section-header {
-    margin-bottom: 2rem;
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
-  .section-icon {
-    font-size: 2rem;
+  .icon {
+    font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.01em;
+    margin: 0 0 0.75rem;
   }
 
-  .section-desc {
+  .lead {
+    font-size: 1.1rem;
     color: #666666;
-    font-size: 0.95rem;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .sub-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .sub-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #f5f5f5;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #666666;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-
-  .sub-nav-item:hover {
-    background: #1a1a1a;
-    color: #ffffff;
-  }
-
-  .sub-icon {
-    font-size: 1rem;
-  }
-
-  .categories {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .category-section {
-    scroll-margin-top: 100px;
-  }
-
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .category-icon {
-    font-size: 1.5rem;
-  }
-
-  .category-title-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .category-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
     margin: 0;
   }
 
-  .category-desc {
-    font-size: 0.85rem;
-    color: #999999;
-  }
-
-  .bookmarks-grid {
+  .sections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .bookmark-card {
+  .section-card {
     background: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 8px;
-    padding: 1.25rem;
+    padding: 1.5rem;
     text-decoration: none;
     transition: all 0.2s;
   }
 
-  .bookmark-card:hover {
+  .section-card:hover {
     border-color: #1a1a1a;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
   }
 
-  .bookmark-title {
-    font-size: 1rem;
+  .section-card h2 {
+    font-size: 1.1rem;
     font-weight: 500;
     color: #1a1a1a;
     margin: 0 0 0.5rem;
   }
 
-  .bookmark-desc {
-    font-size: 0.85rem;
+  .section-card p {
+    font-size: 0.9rem;
     color: #666666;
     margin: 0;
     line-height: 1.5;
@@ -235,17 +102,7 @@ const subCategories = [
     main {
       padding: 2rem 1rem;
     }
-
-    .sub-nav {
-      gap: 0.5rem;
-    }
-
-    .sub-nav-item {
-      padding: 0.4rem 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .bookmarks-grid {
+    .sections-grid {
       grid-template-columns: 1fr;
     }
   }

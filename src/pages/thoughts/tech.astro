@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '读书笔记', title: '📚 读书笔记', href: '/thoughts/reading' },
+  { id: '生活感悟', title: '🌱 生活感悟', href: '/thoughts/life' },
+  { id: '技术思考', title: '💡 技术思考', href: '/thoughts/tech' },
+  { id: '随笔杂谈', title: '✍️ 随笔杂谈', href: '/thoughts/essays' },
+];
+
+const currentSection = '技术思考';
+---
+
+<DocLayout
+  title="💡 技术思考"
+  module="💭 随念随想"
+  moduleHref="/thoughts"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>💡 技术思考</h1>
+  <p class="lead">技术不仅仅是代码，更是对问题的理解和解决。</p>
+
+  <h2>架构设计</h2>
+  <p>系统设计的原则与模式，可扩展、可维护的架构。</p>
+
+  <h3>设计原则</h3>
+  <ul>
+    <li><strong>SOLID</strong>：单一职责、开闭、里氏替换、接口隔离、依赖倒置</li>
+    <li><strong>KISS</strong>：保持简单，避免过度设计</li>
+    <li><strong>DRY</strong>：不要重复自己，提取公共逻辑</li>
+    <li><strong>高内聚低耦合</strong>：模块独立，依赖清晰</li>
+  </ul>
+
+  <h2>代码质量</h2>
+  <p>写出优雅的代码，从命名到设计模式。</p>
+
+  <h3>质量维度</h3>
+  <ul>
+    <li><strong>可读性</strong>：代码是写给人看的</li>
+    <li><strong>可测试性</strong>：易于编写单元测试</li>
+    <li><strong>可维护性</strong>：易于修改和扩展</li>
+    <li><strong>性能</strong>：在满足需求的前提下优化</li>
+  </ul>
+
+  <h2>技术趋势</h2>
+  <p>关注前沿技术发展，保持技术敏感度。</p>
+
+  <h3>关注方向</h3>
+  <ul>
+    <li><strong>AI/ML</strong>：人工智能的落地应用</li>
+    <li><strong>云原生</strong>：容器、K8s、微服务</li>
+    <li><strong>安全</strong>：DevSecOps、零信任</li>
+    <li><strong>效率工具</strong>：提升开发效率的新工具</li>
+  </ul>
+</DocLayout>

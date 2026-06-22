@@ -1,0 +1,58 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '运动健身', title: '🏃 运动健身', href: '/wellness/fitness' },
+  { id: '饮食营养', title: '🥗 饮食营养', href: '/wellness/nutrition' },
+  { id: '心理健康', title: '🧘 心理健康', href: '/wellness/mental' },
+  { id: '习惯养成', title: '✅ 习惯养成', href: '/wellness/habits' },
+];
+
+const currentSection = '心理健康';
+---
+
+<DocLayout
+  title="🧘 心理健康"
+  module="🌿 健康幸福"
+  moduleHref="/wellness"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🧘 心理健康</h1>
+  <p class="lead">心理健康与身体健康同样重要。学会调节情绪、管理压力，保持内心的平静。</p>
+
+  <h2>冥想练习</h2>
+  <p>正念冥想入门与进阶，在繁忙中找到内心的宁静。</p>
+  <p>冥想不是清空思绪，而是觉察当下。当杂念出现时，温柔地把注意力带回到呼吸上。</p>
+
+  <h3>入门方法</h3>
+  <ul>
+    <li><strong>呼吸冥想</strong>：专注呼吸，感受空气进出</li>
+    <li><strong>身体扫描</strong>：从头到脚觉察身体感受</li>
+    <li><strong>行走冥想</strong>：缓慢行走，感受脚步</li>
+  </ul>
+
+  <h2>压力管理</h2>
+  <p>缓解焦虑的实用技巧，与压力和平共处。</p>
+  <p>压力本身不是问题，问题在于我们如何看待和应对压力。适度的压力可以激发潜能，过度的压力则会影响健康。</p>
+
+  <h3>减压技巧</h3>
+  <ul>
+    <li>深呼吸练习 - 478呼吸法</li>
+    <li>运动释放 - 跑步、瑜伽</li>
+    <li>倾诉分享 - 与朋友交流</li>
+    <li>写日记 - 记录情绪</li>
+  </ul>
+
+  <h2>睡眠优化</h2>
+  <p>改善睡眠质量的方法，让每一夜都安稳。</p>
+  <p>睡眠是身体修复的重要时间。良好的睡眠可以提高免疫力、改善记忆力、稳定情绪。</p>
+
+  <h3>睡眠建议</h3>
+  <ul>
+    <li><strong>固定作息</strong>：每天同一时间睡觉和起床</li>
+    <li><strong>睡前仪式</strong>：热水澡、阅读、轻音乐</li>
+    <li><strong>环境优化</strong>：遮光、静音、适宜温度</li>
+    <li><strong>远离蓝光</strong>：睡前1小时不看手机</li>
+  </ul>
+</DocLayout>

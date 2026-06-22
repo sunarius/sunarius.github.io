@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '投资理财', title: '📈 投资理财', href: '/wealth/investment' },
+  { id: '理财规划', title: '📊 理财规划', href: '/wealth/planning' },
+  { id: '消费管理', title: '💳 消费管理', href: '/wealth/spending' },
+  { id: '开源增收', title: '💰 开源增收', href: '/wealth/income' },
+];
+
+const currentSection = '理财规划';
+---
+
+<DocLayout
+  title="📊 理财规划"
+  module="💎 财富自由"
+  moduleHref="/wealth"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>📊 理财规划</h1>
+  <p class="lead">理财规划是实现财务目标的路径。明确目标，制定计划，稳步前行。</p>
+
+  <h2>家庭资产负债表</h2>
+  <p>理清财务状况的第一步，知道自己有多少资产和负债。</p>
+
+  <h3>资产分类</h3>
+  <ul>
+    <li><strong>流动资产</strong>：现金、活期存款、货币基金</li>
+    <li><strong>投资资产</strong>：股票、基金、债券、房产</li>
+    <li><strong>自用资产</strong>：自住房、车辆</li>
+    <li><strong>无形资产</strong>：技能、知识、人脉</li>
+  </ul>
+
+  <h2>应急资金储备</h2>
+  <p>3-6个月生活费的准备，为不确定性建立安全垫。</p>
+
+  <h3>储备原则</h3>
+  <ul>
+    <li><strong>流动性优先</strong>：随时可取，货币基金或活期</li>
+    <li><strong>覆盖支出</strong>：计算每月必要支出</li>
+    <li><strong>家庭因素</strong>：有小孩或老人的家庭储备更多</li>
+    <li><strong>职业稳定性</strong>：工作越不稳定，储备越多</li>
+  </ul>
+
+  <h2>退休规划计算</h2>
+  <p>FIRE 财务自由之路，计算需要多少钱才能财务自由。</p>
+
+  <h3>FIRE 公式</h3>
+  <ul>
+    <li><strong>4% 法则</strong>：年支出的25倍作为目标</li>
+    <li><strong>储蓄率</strong>：储蓄率决定达到FIRE的时间</li>
+    <li><strong>被动收入</strong>：投资收入覆盖日常支出</li>
+    <li><strong>安全边际</strong>：考虑通胀和医疗支出</li>
+  </ul>
+</DocLayout>

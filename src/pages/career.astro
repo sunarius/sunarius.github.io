@@ -3,98 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const subCategories = [
-  {
-    title: '安全运营',
-    icon: '🛡️',
-    description: 'Security Operations',
-    bookmarks: [
-      { title: 'SOC 建设指南', url: '#', desc: '安全运营中心搭建实践' },
-      { title: '威胁情报平台', url: '#', desc: '威胁情报收集与分析' },
-      { title: '应急响应手册', url: '#', desc: '安全事件响应流程' },
-    ]
-  },
-  {
-    title: '办公安全',
-    icon: '🔒',
-    description: 'Office Security',
-    bookmarks: [
-      { title: '零信任架构', url: '#', desc: 'BeyondCorp 实施经验' },
-      { title: '终端安全管理', url: '#', desc: 'EDR/XDR 解决方案' },
-      { title: '邮件安全网关', url: '#', desc: '钓鱼邮件防护策略' },
-    ]
-  },
-  {
-    title: '数据安全',
-    icon: '🔐',
-    description: 'Data Security',
-    bookmarks: [
-      { title: '数据分类分级', url: '#', desc: '数据资产梳理与保护' },
-      { title: '隐私计算技术', url: '#', desc: '联邦学习、多方安全计算' },
-      { title: '数据脱敏方案', url: '#', desc: '敏感数据处理实践' },
-    ]
-  },
-  {
-    title: '安全治理',
-    icon: '📋',
-    description: 'Security Governance',
-    bookmarks: [
-      { title: '安全合规框架', url: '#', desc: 'ISO27001/等保2.0' },
-      { title: '安全审计流程', url: '#', desc: '内审与外审最佳实践' },
-      { title: '风险评估模型', url: '#', desc: '定量与定性风险分析' },
-    ]
-  },
-  {
-    title: 'AI安全',
-    icon: '🤖',
-    description: 'AI Security',
-    bookmarks: [
-      { title: '模型安全测试', url: '#', desc: '对抗样本与模型鲁棒性' },
-      { title: 'AIGC 安全', url: '#', desc: '大模型应用安全挑战' },
-      { title: 'AI 伦理规范', url: '#', desc: '负责任 AI 开发指南' },
-    ]
-  },
+const sections = [
+  { title: '🛡️ 安全运营', desc: 'SOC建设、威胁情报、应急响应', href: '/career/soc' },
+  { title: '🔒 办公安全', desc: '零信任架构、终端安全、邮件安全', href: '/career/office' },
+  { title: '🔐 数据安全', desc: '数据分类、隐私计算、数据脱敏', href: '/career/data' },
+  { title: '📋 安全治理', desc: '合规框架、安全审计、风险评估', href: '/career/governance' },
+  { title: '🤖 AI安全', desc: '模型安全、AIGC安全、AI Agent安全', href: '/career/ai-security' },
 ];
 ---
 
 <Layout title="💼 事业有成">
   <Header />
   <main>
-    <div class="section-header">
-      <span class="section-icon">💼</span>
+    <div class="page-header">
+      <span class="icon">💼</span>
       <h1>事业有成</h1>
-      <p class="section-desc">在代码的世界里探索，在事业的征途中前行</p>
+      <p class="lead">在代码的世界里探索，在事业的征途中前行</p>
     </div>
 
-    <div class="sub-nav">
-      {subCategories.map(sub => (
-        <a href={`#${sub.title}`} class="sub-nav-item">
-          <span class="sub-icon">{sub.icon}</span>
-          <span class="sub-title">{sub.title}</span>
+    <div class="sections-grid">
+      {sections.map(section => (
+        <a href={section.href} class="section-card">
+          <h2>{section.title}</h2>
+          <p>{section.desc}</p>
         </a>
-      ))}
-    </div>
-
-    <div class="categories">
-      {subCategories.map(cat => (
-        <section id={cat.title} class="category-section">
-          <div class="category-header">
-            <span class="category-icon">{cat.icon}</span>
-            <div class="category-title-wrap">
-              <h2 class="category-title">{cat.title}</h2>
-              <span class="category-desc">{cat.description}</span>
-            </div>
-          </div>
-
-          <div class="bookmarks-grid">
-            {cat.bookmarks.map(bookmark => (
-              <a href={bookmark.url} class="bookmark-card">
-                <h3 class="bookmark-title">{bookmark.title}</h3>
-                <p class="bookmark-desc">{bookmark.desc}</p>
-              </a>
-            ))}
-          </div>
-        </section>
       ))}
     </div>
   </main>
@@ -103,139 +35,65 @@ const subCategories = [
 
 <style>
   main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 4rem 2rem;
     min-height: calc(100vh - 140px);
   }
 
-  .section-header {
-    margin-bottom: 2rem;
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
-  .section-icon {
-    font-size: 2rem;
+  .icon {
+    font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.01em;
+    margin: 0 0 0.75rem;
   }
 
-  .section-desc {
+  .lead {
+    font-size: 1.1rem;
     color: #666666;
-    font-size: 0.95rem;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .sub-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .sub-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #f5f5f5;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #666666;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-
-  .sub-nav-item:hover {
-    background: #1a1a1a;
-    color: #ffffff;
-  }
-
-  .sub-icon {
-    font-size: 1rem;
-  }
-
-  .categories {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .category-section {
-    scroll-margin-top: 100px;
-  }
-
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .category-icon {
-    font-size: 1.5rem;
-  }
-
-  .category-title-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .category-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
     margin: 0;
   }
 
-  .category-desc {
-    font-size: 0.85rem;
-    color: #999999;
-  }
-
-  .bookmarks-grid {
+  .sections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .bookmark-card {
+  .section-card {
     background: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 8px;
-    padding: 1.25rem;
+    padding: 1.5rem;
     text-decoration: none;
     transition: all 0.2s;
   }
 
-  .bookmark-card:hover {
+  .section-card:hover {
     border-color: #1a1a1a;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
   }
 
-  .bookmark-title {
-    font-size: 1rem;
+  .section-card h2 {
+    font-size: 1.1rem;
     font-weight: 500;
     color: #1a1a1a;
     margin: 0 0 0.5rem;
   }
 
-  .bookmark-desc {
-    font-size: 0.85rem;
+  .section-card p {
+    font-size: 0.9rem;
     color: #666666;
     margin: 0;
     line-height: 1.5;
@@ -245,17 +103,7 @@ const subCategories = [
     main {
       padding: 2rem 1rem;
     }
-
-    .sub-nav {
-      gap: 0.5rem;
-    }
-
-    .sub-nav-item {
-      padding: 0.4rem 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .bookmarks-grid {
+    .sections-grid {
       grid-template-columns: 1fr;
     }
   }

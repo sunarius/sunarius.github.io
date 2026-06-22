@@ -1,0 +1,63 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '运动健身', title: '🏃 运动健身', href: '/wellness/fitness' },
+  { id: '饮食营养', title: '🥗 饮食营养', href: '/wellness/nutrition' },
+  { id: '心理健康', title: '🧘 心理健康', href: '/wellness/mental' },
+  { id: '习惯养成', title: '✅ 习惯养成', href: '/wellness/habits' },
+];
+
+const currentSection = '饮食营养';
+---
+
+<DocLayout
+  title="🥗 饮食营养"
+  module="🌿 健康幸福"
+  moduleHref="/wellness"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🥗 饮食营养</h1>
+  <p class="lead">合理的饮食搭配是健康的基础。营养均衡、规律饮食，让身体获得充足的能量。</p>
+
+  <h2>均衡膳食</h2>
+  <p>营养比例与食材选择，打造属于自己的健康饮食方案。</p>
+  <p>均衡膳食的关键在于多样化。每天应该摄入谷薯类、蔬菜水果、畜禽鱼蛋奶、大豆坚果等多种食物。</p>
+
+  <h3>营养比例</h3>
+  <ul>
+    <li><strong>碳水化合物</strong>：50-65% - 主要来自谷物、薯类</li>
+    <li><strong>蛋白质</strong>：10-15% - 肉、蛋、奶、豆制品</li>
+    <li><strong>脂肪</strong>：20-30% - 植物油、坚果</li>
+  </ul>
+
+  <h2>健康食谱</h2>
+  <p>简单易做的营养餐，美味与健康兼得。</p>
+
+  <h3>早餐建议</h3>
+  <ul>
+    <li>燕麦粥 + 鸡蛋 + 水果</li>
+    <li>全麦面包 + 牛奶 + 坚果</li>
+    <li>豆浆 + 包子（素馅）+ 蔬菜</li>
+  </ul>
+
+  <h3>午餐建议</h3>
+  <ul>
+    <li>糙米饭 + 清蒸鱼 + 时令蔬菜</li>
+    <li>杂粮馒头 + 鸡胸肉 + 凉拌菜</li>
+    <li>红薯 + 牛肉 + 绿叶菜</li>
+  </ul>
+
+  <h2>间歇性断食</h2>
+  <p>16:8轻断食实践记录，探索适合自己的饮食节奏。</p>
+  <p>间歇性断食是一种饮食模式，不是节食。在8小时内完成一日三餐，其余16小时禁食（可以喝水、茶、黑咖啡）。</p>
+
+  <h3>断食时间表</h3>
+  <ul>
+    <li><strong>进食窗口</strong>：10:00 - 18:00</li>
+    <li><strong>早餐</strong>：10:00</li>
+    <li><strong>午餐</strong>：13:00</li>
+    <li><strong>晚餐</strong>：17:30（睡前3小时）</li>
+  </ul>
+</DocLayout>

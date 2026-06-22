@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '投资理财', title: '📈 投资理财', href: '/wealth/investment' },
+  { id: '理财规划', title: '📊 理财规划', href: '/wealth/planning' },
+  { id: '消费管理', title: '💳 消费管理', href: '/wealth/spending' },
+  { id: '开源增收', title: '💰 开源增收', href: '/wealth/income' },
+];
+
+const currentSection = '消费管理';
+---
+
+<DocLayout
+  title="💳 消费管理"
+  module="💎 财富自由"
+  moduleHref="/wealth"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>💳 消费管理</h1>
+  <p class="lead">理性消费，避免不必要的支出。每一分钱都花在刀刃上。</p>
+
+  <h2>记账工具对比</h2>
+  <p>找到适合的记账方式，让每一笔支出都清晰可见。</p>
+
+  <h3>记账方法</h3>
+  <ul>
+    <li><strong>APP记账</strong>：自动同步，图表分析</li>
+    <li><strong>Excel记账</strong>：灵活自定义，数据自主</li>
+    <li><strong>手账记账</strong>：仪式感强，加深印象</li>
+    <li><strong>微信/支付宝账单</strong>：简便快捷，自动分类</li>
+  </ul>
+
+  <h2>预算制定方法</h2>
+  <p>50/30/20 法则实践，合理分配收入，储蓄优先。</p>
+
+  <h3>预算法则</h3>
+  <ul>
+    <li><strong>50% 需求</strong>：必要支出（房租、饮食、交通）</li>
+    <li><strong>30% 欲望</strong>：可选消费（娱乐、购物）</li>
+    <li><strong>20% 储蓄</strong>：投资、还债、应急</li>
+    <li><strong>先储蓄后消费</strong>：工资到账先转储蓄</li>
+  </ul>
+
+  <h2>理性消费指南</h2>
+  <p>区分想要与需要，避免冲动消费，延迟满足。</p>
+
+  <h3>消费原则</h3>
+  <ul>
+    <li><strong>24小时法则</strong>：大额消费思考一天</li>
+    <li><strong>需求清单</strong>：列出真正需要的物品</li>
+    <li><strong>性价比优先</strong>：不买贵的，只买对的</li>
+    <li><strong>二手市场</strong>：考虑二手或租赁</li>
+  </ul>
+</DocLayout>

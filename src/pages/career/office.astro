@@ -1,0 +1,58 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const currentSection = '办公安全';
+---
+
+<DocLayout
+  title="🔒 办公安全"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🔒 办公安全</h1>
+  <p class="lead">办公安全是企业安全的第一道防线。保障员工办公环境安全，防止数据泄露和恶意攻击。</p>
+
+  <h2>零信任架构</h2>
+  <p>BeyondCorp 实施经验，从不信任，始终验证的安全理念。</p>
+  <p>零信任的核心假设是：网络内外都存在威胁，因此不应该默认信任任何用户或设备。</p>
+
+  <h3>核心原则</h3>
+  <ul>
+    <li><strong>永不信任</strong>：验证每一个访问请求</li>
+    <li><strong>最小权限</strong>：只授予必要的访问权限</li>
+    <li><strong>持续验证</strong>：实时评估安全风险</li>
+    <li><strong>假设被攻破</strong>：内网同样存在威胁</li>
+  </ul>
+
+  <h2>终端安全管理</h2>
+  <p>EDR/XDR 解决方案，保护企业终端设备安全。</p>
+
+  <h3>终端防护</h3>
+  <ul>
+    <li><strong>防病毒</strong>：实时病毒检测与清除</li>
+    <li><strong>设备控制</strong>：USB、蓝牙等外设管控</li>
+    <li><strong>行为分析</strong>：异常行为检测</li>
+    <li><strong>补丁管理</strong>：及时更新系统补丁</li>
+  </ul>
+
+  <h2>邮件安全网关</h2>
+  <p>钓鱼邮件防护策略，阻断社会工程学攻击。</p>
+
+  <h3>防护能力</h3>
+  <ul>
+    <li><strong>钓鱼检测</strong>：识别伪造邮件</li>
+    <li><strong>恶意附件</strong>：沙箱检测可疑文件</li>
+    <li><strong>链接保护</strong>：URL 重写与检测</li>
+    <li><strong>业务欺诈</strong>：识别 BEC 攻击</li>
+  </ul>
+</DocLayout>

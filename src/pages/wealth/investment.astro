@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '投资理财', title: '📈 投资理财', href: '/wealth/investment' },
+  { id: '理财规划', title: '📊 理财规划', href: '/wealth/planning' },
+  { id: '消费管理', title: '💳 消费管理', href: '/wealth/spending' },
+  { id: '开源增收', title: '💰 开源增收', href: '/wealth/income' },
+];
+
+const currentSection = '投资理财';
+---
+
+<DocLayout
+  title="📈 投资理财"
+  module="💎 财富自由"
+  moduleHref="/wealth"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>📈 投资理财</h1>
+  <p class="lead">投资是让财富增值的重要方式。通过合理的资产配置，让钱为你工作。</p>
+
+  <h2>指数基金投资</h2>
+  <p>长期定投策略与实践，普通人最好的投资方式。</p>
+
+  <h3>定投策略</h3>
+  <ul>
+    <li><strong>定期定额</strong>：固定时间投入固定金额</li>
+    <li><strong>微笑曲线</strong>：利用市场波动降低成本</li>
+    <li><strong>长期持有</strong>：时间是最好的朋友</li>
+    <li><strong>分散配置</strong>：宽基指数为主，行业指数为辅</li>
+  </ul>
+
+  <h2>股票分析方法</h2>
+  <p>基本面与技术面入门，理性投资，不盲从。</p>
+
+  <h3>基本面分析</h3>
+  <ul>
+    <li><strong>财务报表</strong>：了解企业真实经营状况</li>
+    <li><strong>估值指标</strong>：PE、PB、ROE 等关键指标</li>
+    <li><strong>行业分析</strong>：选择有前景的行业</li>
+    <li><strong>竞争优势</strong>：寻找有护城河的企业</li>
+  </ul>
+
+  <h2>资产配置模型</h2>
+  <p>股债配置与再平衡，根据年龄和风险偏好调整。</p>
+
+  <h3>经典模型</h3>
+  <ul>
+    <li><strong>股债平衡</strong>：根据风险承受能力配置比例</li>
+    <li><strong>年龄法则</strong>：股票比例 = 100 - 年龄</li>
+    <li><strong>全天候策略</strong>：桥水基金的风险平价模型</li>
+    <li><strong>定期再平衡</strong>：维持目标配置比例</li>
+  </ul>
+</DocLayout>

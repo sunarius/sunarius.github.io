@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '读书笔记', title: '📚 读书笔记', href: '/thoughts/reading' },
+  { id: '生活感悟', title: '🌱 生活感悟', href: '/thoughts/life' },
+  { id: '技术思考', title: '💡 技术思考', href: '/thoughts/tech' },
+  { id: '随笔杂谈', title: '✍️ 随笔杂谈', href: '/thoughts/essays' },
+];
+
+const currentSection = '随笔杂谈';
+---
+
+<DocLayout
+  title="✍️ 随笔杂谈"
+  module="💭 随念随想"
+  moduleHref="/thoughts"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>✍️ 随笔杂谈</h1>
+  <p class="lead">随心而写的文字，记录生活的片段和感悟。</p>
+
+  <h2>周末随笔</h2>
+  <p>记录生活的点滴，一杯咖啡，一段文字。</p>
+
+  <h3>周末时光</h3>
+  <ul>
+    <li><strong>晨间时光</strong>：一杯咖啡，一段阅读</li>
+    <li><strong>户外散步</strong>：用脚步丈量城市</li>
+    <li><strong>整理思绪</strong>：回顾一周，规划下周</li>
+    <li><strong>陪伴家人</strong>：珍惜相处时光</li>
+  </ul>
+
+  <h2>旅行见闻</h2>
+  <p>路上的风景与故事，用脚步丈量世界。</p>
+
+  <h3>旅行记忆</h3>
+  <ul>
+    <li><strong>独自旅行</strong>：一个人的自由与思考</li>
+    <li><strong>古镇漫步</strong>：感受历史的沉淀</li>
+    <li><strong>山川湖海</strong>：大自然的治愈力量</li>
+    <li><strong>城市探索</strong>：发现身边的美好</li>
+  </ul>
+
+  <h2>电影影评</h2>
+  <p>值得回味的影片，光影中的故事。</p>
+
+  <h3>观影记录</h3>
+  <ul>
+    <li><strong>经典回顾</strong>：重温老电影的新感悟</li>
+    <li><strong>新片速递</strong>：院线电影的即时感想</li>
+    <li><strong>导演风格</strong>：不同导演的独特视角</li>
+    <li><strong>类型片</strong>：科幻、悬疑、剧情</li>
+  </ul>
+</DocLayout>

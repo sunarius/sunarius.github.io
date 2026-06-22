@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '读书笔记', title: '📚 读书笔记', href: '/thoughts/reading' },
+  { id: '生活感悟', title: '🌱 生活感悟', href: '/thoughts/life' },
+  { id: '技术思考', title: '💡 技术思考', href: '/thoughts/tech' },
+  { id: '随笔杂谈', title: '✍️ 随笔杂谈', href: '/thoughts/essays' },
+];
+
+const currentSection = '读书笔记';
+---
+
+<DocLayout
+  title="📚 读书笔记"
+  module="💭 随念随想"
+  moduleHref="/thoughts"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>📚 读书笔记</h1>
+  <p class="lead">阅读是与智者对话。记录读书心得，梳理知识脉络。</p>
+
+  <h2>年度书单</h2>
+  <p>2024年阅读计划与总结，好书推荐与阅读心得。</p>
+
+  <h3>阅读目标</h3>
+  <ul>
+    <li><strong>每月一本</strong>：保持阅读习惯，积少成多</li>
+    <li><strong>主题阅读</strong>：集中攻克某个领域</li>
+    <li><strong>经典重读</strong>：好书值得反复阅读</li>
+    <li><strong>跨领域阅读</strong>：拓展认知边界</li>
+  </ul>
+
+  <h2>技术书籍</h2>
+  <p>程序员必读经典，从代码到架构的成长之路。</p>
+
+  <h3>推荐书单</h3>
+  <ul>
+    <li><strong>代码整洁之道</strong>：编写可读、可维护的代码</li>
+    <li><strong>设计模式</strong>：GoF 经典，软件设计基础</li>
+    <li><strong>重构</strong>：改善既有代码的设计</li>
+    <li><strong>人月神话</strong>：软件工程的经典之作</li>
+  </ul>
+
+  <h2>思维模型</h2>
+  <p>查理芒格的智慧，多学科思维模型的应用。</p>
+
+  <h3>核心模型</h3>
+  <ul>
+    <li><strong>第一性原理</strong>：回归事物本质思考</li>
+    <li><strong>逆向思维</strong>：反过来想，总是反过来想</li>
+    <li><strong>复利效应</strong>：时间的累积力量</li>
+    <li><strong>机会成本</strong>：选择的隐性代价</li>
+  </ul>
+</DocLayout>

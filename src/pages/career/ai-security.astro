@@ -1,0 +1,57 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const currentSection = 'AI安全';
+---
+
+<DocLayout
+  title="🤖 AI安全"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🤖 AI安全</h1>
+  <p class="lead">AI 技术为安全领域带来新机遇，也带来新挑战。探索 AI 与安全的深度融合。</p>
+
+  <h2>模型安全测试</h2>
+  <p>对抗样本与模型鲁棒性，保障 AI 系统的可靠运行。</p>
+
+  <h3>测试方法</h3>
+  <ul>
+    <li><strong>对抗攻击</strong>：微小扰动导致错误分类</li>
+    <li><strong>数据投毒</strong>：污染训练数据</li>
+    <li><strong>模型窃取</strong>：通过API复制模型</li>
+    <li><strong>后门攻击</strong>：特定触发器激活</li>
+  </ul>
+
+  <h2>AIGC 安全</h2>
+  <p>大模型应用安全挑战，从提示注入到数据泄露的防护。</p>
+
+  <h3>主要风险</h3>
+  <ul>
+    <li><strong>提示注入</strong>：绕过安全限制</li>
+    <li><strong>数据泄露</strong>：训练数据泄露</li>
+    <li><strong>有害内容</strong>：生成不当内容</li>
+    <li><strong>版权风险</strong>：知识产权问题</li>
+  </ul>
+
+  <h2>AI Agent 安全工程化</h2>
+  <p>关注 Agent 编排、工具调用、权限控制、结构化输出、评估体系与可观测性。</p>
+
+  <h3>关键要素</h3>
+  <ul>
+    <li><strong>权限控制</strong>：最小权限原则</li>
+    <li><strong>输入验证</strong>：严格验证用户输入</li>
+    <li><strong>输出过滤</strong>：敏感信息脱敏</li>
+    <li><strong>审计日志</strong>：完整记录操作</li>
+  </ul>
+</DocLayout>

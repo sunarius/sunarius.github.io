@@ -1,0 +1,57 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '安全运营', title: '🛡️ 安全运营', href: '/career/soc' },
+  { id: '办公安全', title: '🔒 办公安全', href: '/career/office' },
+  { id: '数据安全', title: '🔐 数据安全', href: '/career/data' },
+  { id: '安全治理', title: '📋 安全治理', href: '/career/governance' },
+  { id: 'AI安全', title: '🤖 AI安全', href: '/career/ai-security' },
+];
+
+const currentSection = '数据安全';
+---
+
+<DocLayout
+  title="🔐 数据安全"
+  module="💼 事业有成"
+  moduleHref="/career"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🔐 数据安全</h1>
+  <p class="lead">数据是企业的核心资产。通过数据安全治理，保护敏感信息，合规使用数据。</p>
+
+  <h2>数据分类分级</h2>
+  <p>数据资产梳理与保护，根据敏感度制定不同保护策略。</p>
+
+  <h3>数据分级</h3>
+  <ul>
+    <li><strong>核心数据</strong>：企业最高机密，严格管控</li>
+    <li><strong>重要数据</strong>：业务关键数据，重点保护</li>
+    <li><strong>内部数据</strong>：企业内部使用，一般保护</li>
+    <li><strong>公开数据</strong>：可对外公开，基本保护</li>
+  </ul>
+
+  <h2>隐私计算技术</h2>
+  <p>联邦学习、多方安全计算，在保护隐私的同时实现数据价值。</p>
+
+  <h3>技术方案</h3>
+  <ul>
+    <li><strong>联邦学习</strong>：数据不出本地，联合建模</li>
+    <li><strong>多方安全计算</strong>：多方参与，结果共享</li>
+    <li><strong>同态加密</strong>：密文计算，明文结果</li>
+    <li><strong>差分隐私</strong>：添加噪声，保护个体</li>
+  </ul>
+
+  <h2>数据脱敏方案</h2>
+  <p>敏感数据处理实践，在开发和测试环境安全使用生产数据。</p>
+
+  <h3>脱敏方法</h3>
+  <ul>
+    <li><strong>掩码</strong>：显示部分信息，如 138****8888</li>
+    <li><strong>替换</strong>：用随机值替换敏感字段</li>
+    <li><strong>加密</strong>：可逆加密，保留格式</li>
+    <li><strong>合成</strong>：生成仿真数据</li>
+  </ul>
+</DocLayout>

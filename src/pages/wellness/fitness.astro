@@ -1,0 +1,59 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '运动健身', title: '🏃 运动健身', href: '/wellness/fitness' },
+  { id: '饮食营养', title: '🥗 饮食营养', href: '/wellness/nutrition' },
+  { id: '心理健康', title: '🧘 心理健康', href: '/wellness/mental' },
+  { id: '习惯养成', title: '✅ 习惯养成', href: '/wellness/habits' },
+];
+
+const currentSection = '运动健身';
+---
+
+<DocLayout
+  title="🏃 运动健身"
+  module="🌿 健康幸福"
+  moduleHref="/wellness"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>🏃 运动健身</h1>
+  <p class="lead">运动是保持身体健康的重要方式。通过规律的运动，我们可以增强体质、提高免疫力、改善心情。</p>
+
+  <h2>跑步训练</h2>
+  <p>从5公里到马拉松的进阶之路。跑步不仅是一项运动，更是一种生活态度。</p>
+  <p>刚开始跑步时，不要急于求成。建议从快走开始，逐渐过渡到慢跑。每周增加10%的跑量是比较安全的做法。</p>
+
+  <h3>初学者计划</h3>
+  <ul>
+    <li>第1-2周：快走20分钟，每周3次</li>
+    <li>第3-4周：慢跑1分钟+快走2分钟，循环10次</li>
+    <li>第5-6周：慢跑5分钟+快走1分钟，循环4次</li>
+    <li>第7-8周：连续慢跑20分钟</li>
+  </ul>
+
+  <h2>居家健身</h2>
+  <p>无器械全身训练方案，随时随地开始锻炼。</p>
+  <p>居家健身最大的优势就是方便。不需要去健身房，不需要购买昂贵的器材，只需要一个瑜伽垫，就可以完成大部分训练。</p>
+
+  <h3>推荐动作</h3>
+  <ul>
+    <li><strong>俯卧撑</strong>：锻炼胸肌、三角肌、肱三头肌</li>
+    <li><strong>深蹲</strong>：锻炼腿部和臀部肌肉</li>
+    <li><strong>平板支撑</strong>：核心力量训练</li>
+    <li><strong>卷腹</strong>：腹部肌肉训练</li>
+  </ul>
+
+  <h2>瑜伽入门</h2>
+  <p>零基础瑜伽体式详解，从呼吸开始，感受身心的连接。</p>
+  <p>瑜伽不仅仅是体式练习，更是一种生活方式。通过瑜伽，我们可以学会关注当下，倾听身体的声音。</p>
+
+  <h3>基础体式</h3>
+  <ul>
+    <li>山式 - 站姿的基础</li>
+    <li>下犬式 - 全身拉伸</li>
+    <li>战士一式 - 腿部力量</li>
+    <li>婴儿式 - 放松休息</li>
+  </ul>
+</DocLayout>

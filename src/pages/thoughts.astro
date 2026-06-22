@@ -3,88 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const subCategories = [
-  {
-    title: '读书笔记',
-    icon: '📚',
-    description: 'Reading Notes',
-    bookmarks: [
-      { title: '年度书单', url: '#', desc: '2024年阅读计划与总结' },
-      { title: '技术书籍', url: '#', desc: '程序员必读经典' },
-      { title: '思维模型', url: '#', desc: '查理芒格的智慧' },
-    ]
-  },
-  {
-    title: '生活感悟',
-    icon: '🌱',
-    description: 'Life Reflections',
-    bookmarks: [
-      { title: '极简主义', url: '#', desc: '少即是多的生活哲学' },
-      { title: '时间管理', url: '#', desc: '如何更好地利用时间' },
-      { title: '人际关系', url: '#', desc: '关于沟通与相处的思考' },
-    ]
-  },
-  {
-    title: '技术思考',
-    icon: '💡',
-    description: 'Tech Thoughts',
-    bookmarks: [
-      { title: '架构设计', url: '#', desc: '系统设计的原则与模式' },
-      { title: '代码质量', url: '#', desc: '写出优雅的代码' },
-      { title: '技术趋势', url: '#', desc: '关注前沿技术发展' },
-    ]
-  },
-  {
-    title: '随笔杂谈',
-    icon: '✍️',
-    description: 'Random Thoughts',
-    bookmarks: [
-      { title: '周末随笔', url: '#', desc: '记录生活的点滴' },
-      { title: '旅行见闻', url: '#', desc: '路上的风景与故事' },
-      { title: '电影影评', url: '#', desc: '值得回味的影片' },
-    ]
-  },
+const sections = [
+  { title: '📚 读书笔记', desc: '年度书单、技术书籍、思维模型', href: '/thoughts/reading' },
+  { title: '🌱 生活感悟', desc: '极简主义、时间管理、人际关系', href: '/thoughts/life' },
+  { title: '💡 技术思考', desc: '架构设计、代码质量、技术趋势', href: '/thoughts/tech' },
+  { title: '✍️ 随笔杂谈', desc: '周末随笔、旅行见闻、电影影评', href: '/thoughts/essays' },
 ];
 ---
 
 <Layout title="💭 随念随想">
   <Header />
   <main>
-    <div class="section-header">
-      <span class="section-icon">💭</span>
+    <div class="page-header">
+      <span class="icon">💭</span>
       <h1>随念随想</h1>
-      <p class="section-desc">思绪如风，念头如云</p>
+      <p class="lead">思绪如风，念头如云</p>
     </div>
 
-    <div class="sub-nav">
-      {subCategories.map(sub => (
-        <a href={`#${sub.title}`} class="sub-nav-item">
-          <span class="sub-icon">{sub.icon}</span>
-          <span class="sub-title">{sub.title}</span>
+    <div class="sections-grid">
+      {sections.map(section => (
+        <a href={section.href} class="section-card">
+          <h2>{section.title}</h2>
+          <p>{section.desc}</p>
         </a>
-      ))}
-    </div>
-
-    <div class="categories">
-      {subCategories.map(cat => (
-        <section id={cat.title} class="category-section">
-          <div class="category-header">
-            <span class="category-icon">{cat.icon}</span>
-            <div class="category-title-wrap">
-              <h2 class="category-title">{cat.title}</h2>
-              <span class="category-desc">{cat.description}</span>
-            </div>
-          </div>
-
-          <div class="bookmarks-grid">
-            {cat.bookmarks.map(bookmark => (
-              <a href={bookmark.url} class="bookmark-card">
-                <h3 class="bookmark-title">{bookmark.title}</h3>
-                <p class="bookmark-desc">{bookmark.desc}</p>
-              </a>
-            ))}
-          </div>
-        </section>
       ))}
     </div>
   </main>
@@ -93,139 +34,65 @@ const subCategories = [
 
 <style>
   main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 4rem 2rem;
     min-height: calc(100vh - 140px);
   }
 
-  .section-header {
-    margin-bottom: 2rem;
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
-  .section-icon {
-    font-size: 2rem;
+  .icon {
+    font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.01em;
+    margin: 0 0 0.75rem;
   }
 
-  .section-desc {
+  .lead {
+    font-size: 1.1rem;
     color: #666666;
-    font-size: 0.95rem;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .sub-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .sub-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #f5f5f5;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #666666;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-
-  .sub-nav-item:hover {
-    background: #1a1a1a;
-    color: #ffffff;
-  }
-
-  .sub-icon {
-    font-size: 1rem;
-  }
-
-  .categories {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .category-section {
-    scroll-margin-top: 100px;
-  }
-
-  .category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .category-icon {
-    font-size: 1.5rem;
-  }
-
-  .category-title-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .category-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
     margin: 0;
   }
 
-  .category-desc {
-    font-size: 0.85rem;
-    color: #999999;
-  }
-
-  .bookmarks-grid {
+  .sections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .bookmark-card {
+  .section-card {
     background: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 8px;
-    padding: 1.25rem;
+    padding: 1.5rem;
     text-decoration: none;
     transition: all 0.2s;
   }
 
-  .bookmark-card:hover {
+  .section-card:hover {
     border-color: #1a1a1a;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
   }
 
-  .bookmark-title {
-    font-size: 1rem;
+  .section-card h2 {
+    font-size: 1.1rem;
     font-weight: 500;
     color: #1a1a1a;
     margin: 0 0 0.5rem;
   }
 
-  .bookmark-desc {
-    font-size: 0.85rem;
+  .section-card p {
+    font-size: 0.9rem;
     color: #666666;
     margin: 0;
     line-height: 1.5;
@@ -235,17 +102,7 @@ const subCategories = [
     main {
       padding: 2rem 1rem;
     }
-
-    .sub-nav {
-      gap: 0.5rem;
-    }
-
-    .sub-nav-item {
-      padding: 0.4rem 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .bookmarks-grid {
+    .sections-grid {
       grid-template-columns: 1fr;
     }
   }

@@ -1,0 +1,56 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const sections = [
+  { id: '投资理财', title: '📈 投资理财', href: '/wealth/investment' },
+  { id: '理财规划', title: '📊 理财规划', href: '/wealth/planning' },
+  { id: '消费管理', title: '💳 消费管理', href: '/wealth/spending' },
+  { id: '开源增收', title: '💰 开源增收', href: '/wealth/income' },
+];
+
+const currentSection = '开源增收';
+---
+
+<DocLayout
+  title="💰 开源增收"
+  module="💎 财富自由"
+  moduleHref="/wealth"
+  sections={sections}
+  currentSection={currentSection}
+>
+  <h1>💰 开源增收</h1>
+  <p class="lead">除了节流，更要开源。增加收入来源，提升赚钱能力。</p>
+
+  <h2>副业探索</h2>
+  <p>斜杠青年的多种可能，利用业余时间创造额外收入。</p>
+
+  <h3>副业方向</h3>
+  <ul>
+    <li><strong>技能变现</strong>：设计、写作、编程、翻译</li>
+    <li><strong>内容创作</strong>：公众号、视频、播客</li>
+    <li><strong>电商销售</strong>：跨境电商、闲鱼、小红书</li>
+    <li><strong>知识付费</strong>：课程、咨询、社群</li>
+  </ul>
+
+  <h2>技能变现</h2>
+  <p>将爱好转化为收入，让兴趣成为赚钱的途径。</p>
+
+  <h3>变现路径</h3>
+  <ul>
+    <li><strong>专业技能</strong>：利用本职技能接私活</li>
+    <li><strong>兴趣爱好</strong>：摄影、手工、写作</li>
+    <li><strong>在线平台</strong>：猪八戒、Fiverr、Upwork</li>
+    <li><strong>人脉网络</strong>：口碑传播，熟人推荐</li>
+  </ul>
+
+  <h2>被动收入</h2>
+  <p>睡后收入的构建方法，躺着也能赚钱。</p>
+
+  <h3>被动收入来源</h3>
+  <ul>
+    <li><strong>投资收入</strong>：股息、利息、租金</li>
+    <li><strong>数字产品</strong>：电子书、课程、模板</li>
+    <li><strong>版权收入</strong>：摄影、音乐、写作</li>
+    <li><strong>自动运营</strong>： dropshipping、联盟营销</li>
+  </ul>
+</DocLayout>
